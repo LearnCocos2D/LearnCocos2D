@@ -1,0 +1,49 @@
+DESCRIPTION
+-----------
+This archive contains an ISO C++ class implementing arbitrary length arrays
+of bits.  The class is intended to be easy to follow and expand upon,
+though it may be used without an understanding of its implementation.
+
+FILES
+-----
+bitarray.cpp    - Class providing operations on arbitrary length arrays
+                  of bits.
+bitarray.h      - Header for bitarray class.
+sample.cpp      - Program demonstrating how to use the bitarray class.
+COPYING         - GNU General Public License
+COPYING.LESSER  - GNU Lesser General Public License
+Makefile        - makefile for this project (assumes gcc compiler and GNU make)
+README          - this file
+
+BUILDING
+--------
+To build these files with GNU make and gcc, simply enter "make" from the
+command line.
+
+USAGE
+-----
+sample.cpp demonstrates usage of each of the bitarray functions.
+
+HISTORY
+-------
+08/03/04 - Initial release
+04/30/06 - Improved performance by incorporating Benjamin Schindler's
+           <bschindler@student.ethz.ch> changes to pass arguments as a
+           reference.
+08/02/07 - All methods that don't modify object have been made const to
+           increase functionality of const bit_array_c.
+           All assignment operators return a reference to the object being
+           assigned a value so that operator chaining will work.
+           Add >> and << operators.
+02/03/10 - Replaced vector<unsigned char> with an array of unsigned char.
+           If you want to use STL and vector you might as well use
+           vector<bool>.  Nothing from STL is used in this version.
+
+TODO
+----
+- Test on platforms with character lengths other than 8 bits.
+- Consider implementing overloads that return const bit_array_c
+
+AUTHOR
+------
+Michael Dipperstein (mdipper@alumni.engr.ucsb.edu)

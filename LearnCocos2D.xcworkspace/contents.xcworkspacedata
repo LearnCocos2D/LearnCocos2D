@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:Cocos2D-CCRenderTexture-Demo/Cocos2D-CCRenderTexture-Demo.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Cocos2D-Performance-Test/Cocos2D-Performance-Test.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Cocos2D-PixelPerfectCollisions/Cocos2D-PixelPerfectCollisions.xcodeproj">
+   </FileRef>
+</Workspace>

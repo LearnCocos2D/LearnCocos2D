@@ -1,0 +1,38 @@
+Cocos2D Projects written for Steffen Itterheim's bi-weekly iDevBlogADay post.
+
+Visit Steffen's Learn Cocos2D websites:
+http://www.learn-cocos2d.com (blog & store)
+http://www.learn-cocos2d.com/tag/idevblogaday/ (list of iDevBlogADay posts)
+http://www.kobold2d.com (an improved Cocos2D)
+
+
+This is an Xcode 4 workspace containing multiple Cocos2D projects. Every time I write a new iDevBlogADay post that includes a source code project, I'll add it to this repository. Occasionally I may even update the source code to include new features not covered by the original blog post. 
+
+Note that each project works independently from the Xcode workspace as well.
+
+
+=======
+LICENSE
+=======
+
+Unless mentioned otherwise in individual source code files, consider all of the source code in this repository to be under the MIT License (see below for full License text). 
+
+Individual source code files may list additional copyright holders and/or a deviating license. Please check the source code file's header for a possibly deviating license agreement.
+
+In case a source code file has a header that includes my name and only my name (Steffen Itterheim) followed by the "Copyright __MyCompanyName__ xxxx. All rights reserved." statement in the next line, as in this example:
+	//  Created by Steffen Itterheim on xx.xx.xx.
+	//  Copyright __MyCompanyName__ xxxx. All rights reserved.
+In that case please consider that file under MIT License too. This is merely an instance where I didn't clean up the header that is automatically created by Xcode.
+
+
+___________
+MIT License
+___________
+
+Copyright (c) 2011-2012 Steffen Itterheim
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

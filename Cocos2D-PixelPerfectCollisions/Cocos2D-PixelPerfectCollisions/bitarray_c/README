@@ -1,0 +1,41 @@
+DESCRIPTION
+-----------
+This archive contains an ANSI C library implementing arbitrary length arrays
+of bits.  The library is intended to be easy to follow and expand upon,
+though it may be used without an understanding of its implementation.
+
+FILES
+-----
+bitarray.c      - Library providing operations on arbitrary length arrays
+                  of bits.
+bitarray.h      - Header for bitarray library.
+COPYING         - GNU General Public License Version 3
+COPYING.LESSER  - GNU Lesser General Public License Version 3
+sample.c        - Program demonstrating how to use the bitarray library.
+Makefile        - makefile for this project (assumes gcc compiler and GNU make)
+README          - this file
+
+BUILDING
+--------
+To build these files with GNU make and gcc, simply enter "make" from the
+command line.
+
+USAGE
+-----
+sample.c demonstrates usage of each of the bitarray functions.
+
+HISTORY
+-------
+01/30/04 - Initial release
+02/08/06 - Applied Petr Kobalicek's <kobalicek.petr@gmail.com> fix for
+           handling array memory allocation failures.
+08/26/07 - Updated for LGPL v3 release.
+
+TODO
+----
+- Test on platforms with character lengths other than 8 bits.
+
+AUTHOR
+------
+Michael Dipperstein (mdipper@alumni.engr.ucsb.edu)
+http://michael.dipperstein.com
