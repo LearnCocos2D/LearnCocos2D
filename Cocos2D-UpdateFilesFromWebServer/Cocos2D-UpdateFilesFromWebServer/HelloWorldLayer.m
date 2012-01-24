@@ -173,24 +173,24 @@ NSString* const kWorldWideWebServerFile = @"cctv47.jpg";
 			[self addChild:webSprite];
 			
 			// there's nothing scarier than a frighteningly subtle animation :)
-			float duration = 60.0f;
+			float duration = 50.0f;
 			id skew1 = [CCSkewTo actionWithDuration:duration skewX:-10 skewY:-10];
 			id ease1 = [CCEaseSineInOut actionWithAction:skew1];
 			id skew2 = [CCSkewTo actionWithDuration:duration skewX:10 skewY:10];
 			id ease2 = [CCEaseSineInOut actionWithAction:skew2];
-			id sequence = [CCSequence actions:ease1, ease2, nil];
+			id sequence = [CCSequence actions:ease2, ease1, nil];
 			id repeat = [CCRepeatForever actionWithAction:sequence];
 			[webSprite runAction:repeat];
 			
 			id scale1 = [CCScaleTo actionWithDuration:duration scaleX:1.25f scaleY:0.8f];
 			id scale2 = [CCScaleTo actionWithDuration:duration scaleX:1.0f scaleY:0.95f];
-			id seq2 = [CCSequence actions:scale1, scale2, nil];
+			id seq2 = [CCSequence actions:scale2, scale1, nil];
 			id rep2 = [CCRepeatForever actionWithAction:seq2];
 			[webSprite runAction:rep2];
 			
 			id tint1 = [CCTintTo actionWithDuration:duration red:0 green:255 blue:0];
 			id tint2 = [CCTintTo actionWithDuration:duration red:255 green:0 blue:0];
-			id seq3 = [CCSequence actions:tint1, tint2, nil];
+			id seq3 = [CCSequence actions:tint2, tint1, nil];
 			id rep3 = [CCRepeatForever actionWithAction:seq3];
 			[webSprite runAction:rep3];
 		}
