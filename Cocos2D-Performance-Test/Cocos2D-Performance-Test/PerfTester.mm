@@ -265,15 +265,22 @@ struct Result
 		case KKPerformanceTestMessaging:
 		{
 			Test mytestSels[] = {
+				{ @"ObjC class nonatomic property message send", @selector( testPrivateVariableReadWrite ), },
+				{ @"ObjC class nonatomic property dot notation", @selector( testPrivateVariableReadWriteProperty ), },
+				{ @"ObjC class atomic property message send", @selector( testPrivateVariableReadWriteAtomic ), },
+				{ @"ObjC class atomic property dot notation", @selector( testPrivateVariableReadWriteAtomicProperty ), },
+				{ @"ObjC class @public variable", @selector( testPublicVariableReadWrite ), },
+				
 				{ @"Objective-C NSArray message send", @selector( testMessagingArray ), },
 				{ @"Objective-C CCArray message send", @selector( testMessagingCCArray ), },
 				{ @"Objective-C NSArray enumerateWithBlock msg send", @selector( testMessagingArrayUsingBlock ), },
+				{ @"Objective-C NSArray enumerateWithBlock concurrent msg send", @selector( testMessagingArrayUsingBlockConcurrent ), },
 				//{ @"Objective-C CCArray enumerateWithBlock msg send", @selector( testMessagingCCArrayUsingBlock ), },
 				{ @"Objective-C NSArray makeObjectsPerformSelector", @selector( testMessagingArrayMakeObjectsPerformSelector ), },
 				{ @"Objective-C CCArray makeObjectsPerformSelector", @selector( testMessagingCCArrayMakeObjectsPerformSelector ), },
 				{ @"Objective-C message send", @selector( testMessaging ), },
 				{ @"Objective-C performSelector", @selector( testMessagingPerformSelector ), },
-				{ @"Objective-C performSelector cached", @selector( testMessagingPerformSelectorCached ), },
+				//{ @"Objective-C performSelector cached", @selector( testMessagingPerformSelectorCached ), },
 				{ @"NSInvocation message send", @selector( testNSInvocation ), },
 				{ @"IMP-cached message send", @selector( testIMPCachedMessaging ), },
 				{ @"C++ virtual method call", @selector( testCPPVirtualCall ), },

@@ -14,7 +14,83 @@
 
 #import "PerfTester.h"
 
+@interface StubObject : NSObject
+{
+@private
+    NSUInteger privateVariable;
+	NSUInteger privateVariableAtomic;
+@public
+	NSUInteger publicVariable;
+}
+@property (nonatomic) NSUInteger privateVariable;
+@property (atomic) NSUInteger privateVariableAtomic;
+@end
+
+@implementation StubObject
+@synthesize privateVariable, privateVariableAtomic;
+@end
+
 @implementation PerfTester (Messaging)
+
+-(void) testPrivateVariableReadWrite
+{
+	StubObject* stub = [[StubObject alloc] init];
+	
+    BEGIN( k100MMIterationTestCount )
+	NSUInteger var = [stub privateVariable] + 1;
+	[stub setPrivateVariable:var];
+    END()
+	
+	[stub release];
+}
+
+-(void) testPrivateVariableReadWriteProperty
+{
+	StubObject* stub = [[StubObject alloc] init];
+	
+    BEGIN( k100MMIterationTestCount )
+	NSUInteger var = stub.privateVariable + 1;
+	stub.privateVariable = var;
+    END()
+	
+	[stub release];
+}
+
+-(void) testPrivateVariableReadWriteAtomic
+{
+	StubObject* stub = [[StubObject alloc] init];
+	
+    BEGIN( k100MMIterationTestCount )
+	NSUInteger var = [stub privateVariableAtomic] + 1;
+	[stub setPrivateVariableAtomic:var];
+    END()
+	
+	[stub release];
+}
+
+-(void) testPrivateVariableReadWriteAtomicProperty
+{
+	StubObject* stub = [[StubObject alloc] init];
+	
+    BEGIN( k100MMIterationTestCount )
+	NSUInteger var = stub.privateVariableAtomic + 1;
+	stub.privateVariableAtomic = var;
+    END()
+	
+	[stub release];
+}
+
+-(void) testPublicVariableReadWrite
+{
+	StubObject* stub = [[StubObject alloc] init];
+	
+    BEGIN( k100MMIterationTestCount )
+	NSUInteger var = stub->publicVariable + 1;
+	stub->publicVariable = var;
+    END()
+	
+	[stub release];
+}
 
 - (void)testNothing
 {
@@ -64,6 +140,7 @@ public:
     END()
 }
 
+/* (same as uncached)
 static SEL kCachedSelector = @selector(_stubMethod);
 - (void)testMessagingPerformSelectorCached
 {
@@ -71,6 +148,7 @@ static SEL kCachedSelector = @selector(_stubMethod);
 	[self performSelector:kCachedSelector];
     END()
 }
+*/
 
 -(void) testMessagingArrayUsingBlock
 {
@@ -81,7 +159,7 @@ static SEL kCachedSelector = @selector(_stubMethod);
 		[arr addObject:self];
 	}
 	
-    BEGIN( k100MMIterationTestCount / numItems )
+    BEGIN( k10MMIterationTestCount / numItems )
 	[arr enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) 
 	 {
 		 [obj _stubMethod];
@@ -91,6 +169,24 @@ static SEL kCachedSelector = @selector(_stubMethod);
 	[arr release];
 }
 
+-(void) testMessagingArrayUsingBlockConcurrent
+{
+	int numItems = 1000;
+	NSMutableArray* arr = [[NSMutableArray alloc] initWithCapacity:numItems];
+	for (int i = 0; i < numItems; i++)
+	{
+		[arr addObject:self];
+	}
+	
+    BEGIN( k10MMIterationTestCount / numItems )
+	[arr enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id obj, NSUInteger idx, BOOL *stop) 
+	 {
+		 [obj _stubMethod];
+	 }];
+    END()
+	
+	[arr release];
+}
 
 -(void) testMessagingArray
 {
@@ -101,7 +197,7 @@ static SEL kCachedSelector = @selector(_stubMethod);
 		[arr addObject:self];
 	}
 	
-    BEGIN( k100MMIterationTestCount / numItems )
+    BEGIN( k10MMIterationTestCount / numItems )
 	for (id item in arr)
 	{
 		[item _stubMethod];
@@ -120,8 +216,8 @@ static SEL kCachedSelector = @selector(_stubMethod);
 		[arr addObject:self];
 	}
 	
-    BEGIN( k100MMIterationTestCount / numItems )
-	[arr makeObjectsPerformSelector:kCachedSelector];
+    BEGIN( k10MMIterationTestCount / numItems )
+	[arr makeObjectsPerformSelector:@selector(_stubMethod)];
     END()
 	
 	[arr release];
@@ -136,7 +232,7 @@ static SEL kCachedSelector = @selector(_stubMethod);
 		[arr addObject:self];
 	}
 	
-    BEGIN( k100MMIterationTestCount / numItems )
+    BEGIN( k10MMIterationTestCount / numItems )
 	for (id item in arr)
 	{
 		[item _stubMethod];
@@ -155,8 +251,8 @@ static SEL kCachedSelector = @selector(_stubMethod);
 		[arr addObject:self];
 	}
 	
-    BEGIN( k100MMIterationTestCount / numItems )
-	[arr makeObjectsPerformSelector:kCachedSelector];
+    BEGIN( k10MMIterationTestCount / numItems )
+	[arr makeObjectsPerformSelector:@selector(_stubMethod)];
     END()
 	
 	[arr release];
