@@ -265,11 +265,19 @@ struct Result
 		case KKPerformanceTestMessaging:
 		{
 			Test mytestSels[] = {
-				{ @"C++ virtual method call", @selector( testCPPVirtualCall ), },
+				{ @"Objective-C NSArray message send", @selector( testMessagingArray ), },
+				{ @"Objective-C CCArray message send", @selector( testMessagingCCArray ), },
+				{ @"Objective-C NSArray enumerateWithBlock msg send", @selector( testMessagingArrayUsingBlock ), },
+				//{ @"Objective-C CCArray enumerateWithBlock msg send", @selector( testMessagingCCArrayUsingBlock ), },
+				{ @"Objective-C NSArray makeObjectsPerformSelector", @selector( testMessagingArrayMakeObjectsPerformSelector ), },
+				{ @"Objective-C CCArray makeObjectsPerformSelector", @selector( testMessagingCCArrayMakeObjectsPerformSelector ), },
 				{ @"Objective-C message send", @selector( testMessaging ), },
-				{ @"IMP-cached message send", @selector( testIMPCachedMessaging ), },
-				{ @"C++ cached virtual method call", @selector( testCPPCachedVirtualCall ), },
+				{ @"Objective-C performSelector", @selector( testMessagingPerformSelector ), },
+				{ @"Objective-C performSelector cached", @selector( testMessagingPerformSelectorCached ), },
 				{ @"NSInvocation message send", @selector( testNSInvocation ), },
+				{ @"IMP-cached message send", @selector( testIMPCachedMessaging ), },
+				{ @"C++ virtual method call", @selector( testCPPVirtualCall ), },
+				{ @"C++ cached virtual method call", @selector( testCPPCachedVirtualCall ), },
 				{ nil, NULL }
 			};
 			memcpy(testSels, mytestSels, sizeof(mytestSels));

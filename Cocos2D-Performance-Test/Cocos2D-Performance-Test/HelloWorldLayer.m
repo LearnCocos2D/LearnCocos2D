@@ -72,17 +72,17 @@ static HelloWorldLayer* instance;
 
 	pt = [[PerfTester alloc] init];
 	pt.quickTest = NO;
+	[pt test:KKPerformanceTestMessaging];
 	[pt test:kkPerformanceTestObjectCompare];
 	[pt test:kkPerformanceTestArray];
 	[pt test:KKPerformanceTestObjectCreation];
 	[pt test:KKPerformanceTestTextureLoading];
 	[pt test:kkPerformanceTestNodeHierarchy];
-	[pt test:KKPerformanceTestMessaging];
 	[pt test:kkPerformanceTestArithmetic];
 	[pt test:kkPerformanceTestMemory];
 	[pt test:KKPerformanceTestIO];
 	[pt test:kkPerformanceTestMisc];
-
+	
 	[pt printResultsToStandardOutput];
 	[pt showResultsInView:[CCDirector sharedDirector].openGLView];
 	

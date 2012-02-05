@@ -168,7 +168,7 @@ NSString* const kWorldWideWebServerFile = @"cctv47.jpg";
 			CCSprite* webSprite = [CCSprite spriteWithFile:localFile];
 			webSprite.position = CGPointMake(240, 160);
 			webSprite.tag = kTagForLocalWebSprites;
-			webSprite.opacity = 70;
+			webSprite.opacity = 80;
 			webSprite.color = ccGREEN;
 			[self addChild:webSprite];
 			
@@ -202,7 +202,7 @@ NSString* const kWorldWideWebServerFile = @"cctv47.jpg";
 			CCSprite* flair = [CCSprite spriteWithFile:localFile];
 			//flair.position = CGPointMake(480 - flair.contentSize.width * 0.5f, 320 - flair.contentSize.height * 0.5f);
 			flair.position = CGPointMake(240, 160);
-			flair.opacity = 100; // let the background shine through, gives an eery "desertly" atmosphere
+			flair.opacity = 120; // let the background shine through, gives an eery "desertly" atmosphere
 			flair.tag = kTagForWorldWideWebSprites;
 			flair.scale = 1.4f;
 			[self addChild:flair z:-1];

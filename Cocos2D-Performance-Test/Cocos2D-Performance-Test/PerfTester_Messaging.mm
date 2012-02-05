@@ -57,6 +57,111 @@ public:
     END()
 }
 
+- (void)testMessagingPerformSelector
+{
+    BEGIN( k100MMIterationTestCount )
+	[self performSelector:@selector(_stubMethod)];
+    END()
+}
+
+static SEL kCachedSelector = @selector(_stubMethod);
+- (void)testMessagingPerformSelectorCached
+{
+    BEGIN( k100MMIterationTestCount )
+	[self performSelector:kCachedSelector];
+    END()
+}
+
+-(void) testMessagingArrayUsingBlock
+{
+	int numItems = 1000;
+	NSMutableArray* arr = [[NSMutableArray alloc] initWithCapacity:numItems];
+	for (int i = 0; i < numItems; i++)
+	{
+		[arr addObject:self];
+	}
+	
+    BEGIN( k100MMIterationTestCount / numItems )
+	[arr enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) 
+	 {
+		 [obj _stubMethod];
+	 }];
+    END()
+	
+	[arr release];
+}
+
+
+-(void) testMessagingArray
+{
+	int numItems = 1000;
+	NSMutableArray* arr = [[NSMutableArray alloc] initWithCapacity:numItems];
+	for (int i = 0; i < numItems; i++)
+	{
+		[arr addObject:self];
+	}
+	
+    BEGIN( k100MMIterationTestCount / numItems )
+	for (id item in arr)
+	{
+		[item _stubMethod];
+	}
+    END()
+	
+	[arr release];
+}
+
+-(void) testMessagingArrayMakeObjectsPerformSelector
+{
+	int numItems = 1000;
+	NSMutableArray* arr = [[NSMutableArray alloc] initWithCapacity:numItems];
+	for (int i = 0; i < numItems; i++)
+	{
+		[arr addObject:self];
+	}
+	
+    BEGIN( k100MMIterationTestCount / numItems )
+	[arr makeObjectsPerformSelector:kCachedSelector];
+    END()
+	
+	[arr release];
+}
+
+-(void) testMessagingCCArray
+{
+	int numItems = 1000;
+	CCArray* arr = [[CCArray alloc] initWithCapacity:numItems];
+	for (int i = 0; i < numItems; i++)
+	{
+		[arr addObject:self];
+	}
+	
+    BEGIN( k100MMIterationTestCount / numItems )
+	for (id item in arr)
+	{
+		[item _stubMethod];
+	}
+    END()
+	
+	[arr release];
+}
+
+-(void) testMessagingCCArrayMakeObjectsPerformSelector
+{
+	int numItems = 1000;
+	CCArray* arr = [[CCArray alloc] initWithCapacity:numItems];
+	for (int i = 0; i < numItems; i++)
+	{
+		[arr addObject:self];
+	}
+	
+    BEGIN( k100MMIterationTestCount / numItems )
+	[arr makeObjectsPerformSelector:kCachedSelector];
+    END()
+	
+	[arr release];
+}
+
 - (void)testIMPCachedMessaging
 {
     void (*imp)(id, SEL) = (void (*)(id, SEL))[self methodForSelector: @selector( _stubMethod )];
