@@ -13,12 +13,26 @@ enum
 {
 	kTagForLocalWebSprites = 1,
 	kTagForWorldWideWebSprites,
+	kTagForAsyncModeLabel,
 };
 
 @interface HelloWorldLayer : CCLayer
 {
+	BOOL isCurrentlyMakingWebServerRequest;
 }
 
 +(CCScene *) scene;
 
+@end
+
+// helper class to carry info over to the background thread
+@interface AsyncFileDownloadData : NSObject
+{
+	NSURL* url;
+	NSString* localFile;
+	int spriteTag;
+}
+@property (copy) NSURL* url;
+@property (copy) NSString* localFile;
+@property int spriteTag;
 @end

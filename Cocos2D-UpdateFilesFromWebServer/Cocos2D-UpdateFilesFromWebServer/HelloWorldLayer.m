@@ -27,6 +27,26 @@ NSString* const kWorldWideWebServerFile = @"cctv47.jpg";
 //NSString* const kWorldWideWebServerAddress = @"stackexchange.com/users/flair";
 //NSString* const kWorldWideWebServerFile = @"69373.png";
 
+// tell the code to prefer asynchronous operations where possible
+static BOOL useAsynchronousOperations = YES;
+
+
+@implementation AsyncFileDownloadData
+@synthesize url, localFile, spriteTag;
+-(void) dealloc
+{
+	//CCLOG(@"dealloc %@", self);
+	[url release];
+	[localFile release];
+	[super dealloc];
+}
+@end 
+
+
+
+@interface HelloWorldLayer (PrivateMethods)
+-(void) updateTexturesWithAsyncData:(AsyncFileDownloadData*)afd;
+@end
 
 @implementation HelloWorldLayer
 
@@ -49,7 +69,7 @@ NSString* const kWorldWideWebServerFile = @"cctv47.jpg";
 	return documentsDirectory;
 }
 
--(BOOL) isNewerFileOnServer:(NSString*)server filename:(NSString*)filename
+-(BOOL) isNewerFileOnServer:(NSString*)server filename:(NSString*)filename spriteTag:(int)spriteTag
 {
 	BOOL isNewer = YES;
 
@@ -62,9 +82,10 @@ NSString* const kWorldWideWebServerFile = @"cctv47.jpg";
 		NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@/%@", server, filename]];
 		NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
 		[request setHTTPMethod:@"HEAD"];
-		
+
 		NSHTTPURLResponse* response;
 		NSError* error = nil;
+
 		[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
 		[self logError:error];
 		
@@ -74,13 +95,13 @@ NSString* const kWorldWideWebServerFile = @"cctv47.jpg";
 		{
 			httpLastModified = [[response allHeaderFields] objectForKey:@"Last-Modified"];
 		}  
-
+		
 		// setup a date formatter to query the server file's modified date
 		NSDateFormatter* df = [[[NSDateFormatter alloc] init] autorelease];
 		df.dateFormat = @"EEE',' dd MMM yyyy HH':'mm':'ss 'GMT'";
 		df.locale = [[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"] autorelease];
 		df.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
-
+		
 		// get the file attributes to retrieve the local file's modified date
 		NSDictionary* fileAttributes = [fileManager attributesOfItemAtPath:localFile error:&error];
 		[self logError:error];
@@ -94,28 +115,78 @@ NSString* const kWorldWideWebServerFile = @"cctv47.jpg";
 	return isNewer;
 }
 
--(NSString*) downloadFileFromServer:(NSString*)server filename:(NSString*)filename
+-(void) downloadFileFromServerInBackground:(AsyncFileDownloadData*)afd
+{
+	NSError* error = nil;
+	NSData* data = [NSData dataWithContentsOfURL:afd.url options:NSDataReadingMappedIfSafe error:&error];
+	[self logError:error];
+	
+	[data writeToFile:afd.localFile options:NSDataWritingAtomic error:&error];
+	[self logError:error];
+	
+	// wait until done in this case means that the background thread waits for completion of the task
+	// manipulating or creating sprites must be done on the main thread
+	[self performSelectorOnMainThread:@selector(updateTexturesWithAsyncData:) withObject:afd waitUntilDone:NO];
+}
+
+-(NSString*) downloadFileFromServer:(NSString*)server filename:(NSString*)filename spriteTag:(int)spriteTag
 {
 	NSString* localFile = [[self documentsDirectory] stringByAppendingPathComponent:filename];
 	
 	// only download the file from web server if it is newer
-	if ([self isNewerFileOnServer:server filename:filename])
+	//if ([self isNewerFileOnServer:server filename:filename])
 	{
 		NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@/%@", server, filename]];
 		
 		//CCLOG(@"Trying to download newer file from URL: %@", url);
-		
-		NSError* error = nil;
-		NSData* data = [NSData dataWithContentsOfURL:url options:NSDataReadingMappedIfSafe error:&error];
-		[self logError:error];
-		
-		[data writeToFile:localFile options:NSDataWritingAtomic error:&error];
-		[self logError:error];
-		
-		//CCLOG(@"Downloaded file saved as: %@", localFile);
+
+		if (useAsynchronousOperations)
+		{
+			AsyncFileDownloadData* afd = [[[AsyncFileDownloadData alloc] init] autorelease];
+			afd.url = url;
+			afd.localFile = localFile;
+			afd.spriteTag = spriteTag;
+			
+			// note: performSelectorInBackground retains afd until task is complete
+			[self performSelectorInBackground:@selector(downloadFileFromServerInBackground:) withObject:afd];
+		}
+		else
+		{
+			NSError* error = nil;
+			NSData* data = [NSData dataWithContentsOfURL:url 
+												 options:NSDataReadingMappedIfSafe
+												   error:&error];
+			[self logError:error];
+			
+			[data writeToFile:localFile
+					  options:NSDataWritingAtomic 
+						error:&error];
+			[self logError:error];
+		}
 	}
 
 	return localFile;
+}
+
+-(void) updateChildrenWithTag:(int)spriteTag texture:(CCTexture2D*)newTexture
+{
+	CCSprite* sprite;
+	CCARRAY_FOREACH(self.children, sprite)
+	{
+		if (sprite.tag == spriteTag)
+		{
+			sprite.texture = newTexture;
+		}
+	}
+}
+
+-(void) asyncTextureLoadDidFinishForLocalWebSprites:(CCTexture2D*)texture
+{
+	[self updateChildrenWithTag:kTagForLocalWebSprites texture:texture];
+}
+-(void) asyncTextureLoadDidFinishForWorldWideWebSprites:(CCTexture2D*)texture
+{
+	[self updateChildrenWithTag:kTagForWorldWideWebSprites texture:texture];
 }
 
 -(void) updateTexturesFromFile:(NSString*)file forSpritesWithTag:(int)spriteTag
@@ -126,44 +197,105 @@ NSString* const kWorldWideWebServerFile = @"cctv47.jpg";
 		// clear the currently cached texture and force it to be reloaded
 		CCTextureCache* texCache = [CCTextureCache sharedTextureCache];
 		[texCache removeTexture:spriteWithTag.texture];
-		CCTexture2D* newTexture = [texCache addImage:file];
 		
-		CCSprite* sprite;
-		CCARRAY_FOREACH(self.children, sprite)
+		if (useAsynchronousOperations)
 		{
-			if (sprite.tag == spriteTag)
+			// since operation is asynchronous and you can't provide userdata to the selector, 
+			// you must use unique selectors for each spriteTag			
+			if (spriteTag == kTagForLocalWebSprites)
 			{
-				sprite.texture = newTexture;
+				[texCache addImageAsync:file 
+								 target:self
+							   selector:@selector(asyncTextureLoadDidFinishForLocalWebSprites:)];
+			}
+			else if (spriteTag == kTagForWorldWideWebSprites)
+			{
+				[texCache addImageAsync:file
+								 target:self
+							   selector:@selector(asyncTextureLoadDidFinishForWorldWideWebSprites:)];
+			}
+			else
+			{
+				NSAssert1(nil, @"unsupported spriteTag %i for asynchronous texture load", spriteTag);
 			}
 		}
+		else
+		{
+			CCTexture2D* newTexture = [texCache addImage:file];
+			[self updateChildrenWithTag:spriteTag texture:newTexture];
+		}
 	}
+}
+
+// this just calls updateTexturesFromFile after returning from the background download selector
+-(void) updateTexturesWithAsyncData:(AsyncFileDownloadData*)afd
+{
+	[self updateTexturesFromFile:afd.localFile forSpritesWithTag:afd.spriteTag];
 }
 
 -(void) updateWebSprites:(ccTime)delta
 {
 	// update the sprites whenever the web server's image file has changed
-	if ([self isNewerFileOnServer:kLocalWebServerAddress filename:kLocalWebServerFile])
+	//if ([self isNewerFileOnServer:kLocalWebServerAddress filename:kLocalWebServerFile spriteTag:kTagForLocalWebSprites])
 	{
-		NSString* localFile = [self downloadFileFromServer:kLocalWebServerAddress filename:kLocalWebServerFile];
-		[self updateTexturesFromFile:localFile forSpritesWithTag:kTagForLocalWebSprites];
+		NSString* localFile = [self downloadFileFromServer:kLocalWebServerAddress 
+												  filename:kLocalWebServerFile 
+												 spriteTag:kTagForLocalWebSprites];
+		
+		if (useAsynchronousOperations == NO)
+		{
+			[self updateTexturesFromFile:localFile forSpritesWithTag:kTagForLocalWebSprites];
+		}
 	}
 	
-	if ([self isNewerFileOnServer:kWorldWideWebServerAddress filename:kWorldWideWebServerFile])
+	//if ([self isNewerFileOnServer:kWorldWideWebServerAddress filename:kWorldWideWebServerFile spriteTag:kTagForLocalWebSprites])
 	{
-		NSString* localFile = [self downloadFileFromServer:kWorldWideWebServerAddress filename:kWorldWideWebServerFile];
-		[self updateTexturesFromFile:localFile forSpritesWithTag:kTagForWorldWideWebSprites];
+		NSString* localFile = [self downloadFileFromServer:kWorldWideWebServerAddress 
+												  filename:kWorldWideWebServerFile
+												 spriteTag:kTagForWorldWideWebSprites];
+
+		if (useAsynchronousOperations == NO)
+		{
+			[self updateTexturesFromFile:localFile forSpritesWithTag:kTagForWorldWideWebSprites];
+		}
 	}
+}
+
+-(void) updateAsyncModeLabelString
+{
+	CCLabelTTF* label = (CCLabelTTF*)[self getChildByTag:kTagForAsyncModeLabel];
+	if (useAsynchronousOperations)
+	{
+		label.string = @"Asynchronous Mode";
+	}
+	else
+	{
+		label.string = @"Synchronous Mode";
+	}
+}
+
+-(void) ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+	// switch mode
+	useAsynchronousOperations = !useAsynchronousOperations;
+	[self updateAsyncModeLabelString];
 }
 
 -(id) init
 {
 	if ((self = [super init]))
 	{
+		// during init we can't use async mode!
+		BOOL rememberAsyncSetting = useAsynchronousOperations;
+		useAsynchronousOperations = NO;
+		
 		// clear color is being reset when reloading textures
 		glClearColor(0.9f, 0.75f, 0.45f, 1.0f);
 
 		{
-			NSString* localFile = [self downloadFileFromServer:kLocalWebServerAddress filename:kLocalWebServerFile];
+			NSString* localFile = [self downloadFileFromServer:kLocalWebServerAddress 
+													  filename:kLocalWebServerFile
+													 spriteTag:kTagForLocalWebSprites];
 			
 			CCSprite* webSprite = [CCSprite spriteWithFile:localFile];
 			webSprite.position = CGPointMake(240, 160);
@@ -196,8 +328,10 @@ NSString* const kWorldWideWebServerFile = @"cctv47.jpg";
 		}
 		
 		{
-			// just for kicks, try to download a file (my StackExchange flair image) from the world wide web as well
-			NSString* localFile = [self downloadFileFromServer:kWorldWideWebServerAddress filename:kWorldWideWebServerFile];
+			// just for kicks, try to download a file from the world wide web as well
+			NSString* localFile = [self downloadFileFromServer:kWorldWideWebServerAddress
+													  filename:kWorldWideWebServerFile
+													 spriteTag:kTagForWorldWideWebSprites];
 			
 			CCSprite* flair = [CCSprite spriteWithFile:localFile];
 			//flair.position = CGPointMake(480 - flair.contentSize.width * 0.5f, 320 - flair.contentSize.height * 0.5f);
@@ -208,7 +342,39 @@ NSString* const kWorldWideWebServerFile = @"cctv47.jpg";
 			[self addChild:flair z:-1];
 		}
 		
-		[self schedule:@selector(updateWebSprites:) interval:0.5f];
+		{
+			// this sprite should show the lag in performance caused by download & texture reload
+			CCSprite* sprite = [CCSprite spriteWithFile:@"Icon.png"];
+			sprite.scale = 0.25f;
+			CGPoint spriteOffset = CGPointMake(sprite.contentSize.width * 0.125f, sprite.contentSize.height * 0.125f);
+			sprite.position = spriteOffset;
+			sprite.color = ccBLACK;
+			sprite.opacity = 150;
+			[self addChild:sprite z:2];
+			
+			CGSize screenSize = [CCDirector sharedDirector].winSize;
+			float duration = 1.3f;
+			id moveR = [CCMoveTo actionWithDuration:duration position:CGPointMake(screenSize.width - spriteOffset.x, sprite.position.y)];
+			id moveL = [CCMoveTo actionWithDuration:duration position:sprite.position];
+			id sequence = [CCSequence actions:moveR, moveL, nil];
+			id repeat = [CCRepeatForever actionWithAction:sequence];
+			[sprite runAction:repeat];
+		}
+		
+		{
+			CCLabelTTF* label = [CCLabelTTF labelWithString:@"" fontName:@"Arial" fontSize:16];
+			label.anchorPoint = CGPointMake(0, 1);
+			label.position = CGPointMake(2, 318);
+			label.color = ccMAGENTA;
+			label.tag = kTagForAsyncModeLabel;
+			[self addChild:label z:2];
+		}
+		
+		useAsynchronousOperations = rememberAsyncSetting;
+		[self updateAsyncModeLabelString];
+		
+		self.isTouchEnabled = YES;
+		[self schedule:@selector(updateWebSprites:) interval:0.2f];
 	}
 	return self;
 }

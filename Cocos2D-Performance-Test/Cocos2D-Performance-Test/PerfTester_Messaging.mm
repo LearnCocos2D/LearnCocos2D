@@ -36,6 +36,12 @@
 {
 	StubObject* stub = [[StubObject alloc] init];
 	
+	/*
+	SEL aSelector = @selector(init);
+	IMP imp1 = [self methodForSelector:aSelector];
+	IMP imp2 = [stub methodForSelector:aSelector];
+	*/
+	
     BEGIN( k100MMIterationTestCount )
 	NSUInteger var = [stub privateVariable] + 1;
 	[stub setPrivateVariable:var];
