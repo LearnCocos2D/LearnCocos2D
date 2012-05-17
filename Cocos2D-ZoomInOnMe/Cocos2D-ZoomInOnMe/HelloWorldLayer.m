@@ -96,34 +96,6 @@ const float kZoomInFactor = 6.0f;
 	}];
 	id sequence = [CCSequence actions:zoomIn, zoomOut, reset, nil];
 	[self runAction:sequence];
-/*	
-	id wait = [CCDelayTime actionWithDuration:fallenAnimDuration * 0.8f];
-	call = [CCCallBlock actionWithBlock:^{
-		GameScene* gameScene = [GameScene sharedGameScene];
-		CGPoint pos = [CCDirector sharedDirector].screenCenter;
-		pos.x += 25;
-		pos.y += 20;
-		
-		const float scaleFactor = 4.0f;
-		pos = ccpMult(yetiAnim.sprite.position, -(scaleFactor - 1.0f));
-		CGPoint offsetToCenter = ccpSub([CCDirector sharedDirector].screenCenter, yetiAnim.sprite.position);
-		pos = ccpAdd(pos, offsetToCenter);
-		pos.x += 25;
-		pos.y += 20;
-		
-		id move = [CCMoveBy actionWithDuration:0.4f position:pos];
-		//[yetiAnim.sprite runAction:move];
-		[gameScene.yetiBatch runAction:[CCEaseBackOut actionWithAction:move]];
-		
-		id scale = [CCScaleTo actionWithDuration:0.4f scale:scaleFactor];
-		//[yetiAnim.sprite runAction:[CCEaseBackOut actionWithAction:scale]];
-		[gameScene.yetiBatch runAction:[CCEaseBackOut actionWithAction:scale]];
-		
-		[gameScene fadeOutObjectsOnYetiZoom];
-	}];
-	sequence = [CCSequence actions:wait, call, nil];
-	[yetiAnim.sprite runAction:sequence];
-*/
 }
 
 -(void) draw
