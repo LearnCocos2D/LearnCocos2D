@@ -20,6 +20,12 @@
 
 @synthesize quickTest, webView;
 
+-(void) setQuickTest:(BOOL)quick
+{
+	quickTest = quick;
+	NSLog(@"Quick Testing is %@.", quickTest ? @"ON" : @"OFF");
+}
+
 -(id) init
 {
 	if ((self = [super init]))
@@ -195,6 +201,9 @@ struct Result
 		case KKPerformanceTestObjectCreation:
 		{
 			Test mytestSels[] = {
+				{ @"CCSprite GCD alloc/initWithFile/release", @selector( testCCSpriteWithFileCreationConcurrentlyWithGCD ), },
+				{ @"CCSprite alloc/initWithFile/release", @selector( testCCSpriteWithFileCreation ), },
+				
 				{ @"CCTMXTiledMap small alloc/init/release", @selector( testCCTMXTiledMapSmallCreation ), },
 				{ @"CCTMXTiledMap large alloc/init/release", @selector( testCCTMXTiledMapLargeCreation ), },
 				//{ @"CCTMXTiledMap gigantic alloc/init/release", @selector( testCCTMXTiledMapGiganticCreation ), },
@@ -203,7 +212,6 @@ struct Result
 				{ @"NSAutoreleasePool alloc/init/release", @selector( testPoolCreation ), },
 				{ @"NSObject alloc/init/release", @selector( testNSObjectCreation ), },
 				{ @"CCNode alloc/init/release", @selector( testCCNodeCreation ), },
-				{ @"CCSprite alloc/initWithFile/release", @selector( testCCSpriteWithFileCreation ), },
 				{ @"CCLabelBMFont alloc/initWithString/release", @selector( testCCLabelBMFontWithStringCreation ), },
 				{ @"CCLabelTTF alloc/initWithString/release", @selector( testCCLabelTTFWithStringCreation ), },
 				{ @"CCMoveTo alloc/init/release", @selector( testCCMoveToCreation ), },

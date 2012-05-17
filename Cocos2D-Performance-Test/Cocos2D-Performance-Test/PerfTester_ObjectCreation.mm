@@ -37,14 +37,75 @@
     END()
 }
 
+static int iterCount = 0;
+
 - (void)testCCSpriteWithFileCreation
 {
 	// cache the texture
 	[[CCTextureCache sharedTextureCache] addImage:@"Icon.png"];
 	
     BEGIN( k1MMIterationTestCount )
+	iterCount++;
 	[[[CCSprite alloc] initWithFile:@"Icon.png"] release];
     END()
+	
+	NSLog(@"number of iterations: %i", iterCount);
+	iterCount = 0;
+}
+
+void createCCSprite(void* data)
+{
+	//NSLog(@"async_f thread: %@", [NSThread currentThread]);
+	[[[CCSprite alloc] initWithFile:@"Icon.png"] release];
+	iterCount++;
+}
+
+- (void)testCCSpriteWithFileCreationConcurrentlyWithGCD
+{
+	// cache the texture
+	[[CCTextureCache sharedTextureCache] addImage:@"Icon.png"];
+	
+    BEGIN( 1 )
+	if (YES)
+	{
+		dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
+		void (^CreateSpriteApply)(size_t index) = ^(size_t index){ 
+			//NSLog(@"apply thread: %@", [NSThread currentThread]);
+			[[[CCSprite alloc] initWithFile:@"Icon.png"] release]; 
+			iterCount++;
+		};
+		
+		dispatch_apply(k1MMIterationTestCount, queue, CreateSpriteApply);
+	}
+	else
+	{
+		dispatch_queue_t queue1 = dispatch_queue_create("first", NULL);
+		dispatch_queue_t queue2 = dispatch_queue_create("second", NULL);
+		dispatch_group_t group = dispatch_group_create();
+		void (^CreateSprite)() = ^(void){
+			//NSLog(@"async thread: %@", [NSThread currentThread]);
+			[[[CCSprite alloc] initWithFile:@"Icon.png"] release];
+			iterCount++;
+		};
+		
+		int loopCount = k1MMIterationTestCount / 2;
+		for (int j = 1; j <= loopCount; j++)
+		{
+			//dispatch_group_async(group, queue1, CreateSprite);
+			//dispatch_group_async(group, queue2, CreateSprite);
+			dispatch_group_async_f(group, queue1, NULL, createCCSprite);
+			dispatch_group_async_f(group, queue2, NULL, createCCSprite);
+		}
+		dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+		
+		dispatch_release(group);
+		dispatch_release(queue1);
+		dispatch_release(queue2);
+	}
+    END()
+
+	NSLog(@"number of iterations: %i", iterCount);
+	iterCount = 0;
 }
 
 -(void) testCCLabelBMFontWithStringCreation

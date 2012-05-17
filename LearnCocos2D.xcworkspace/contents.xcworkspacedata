@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Cocos2D-ZoomInOnMe/Cocos2D-ZoomInOnMe.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Cocos2D-UpdateFilesFromWebServer/Cocos2D-UpdateFilesFromWebServer.xcodeproj">
    </FileRef>
    <FileRef

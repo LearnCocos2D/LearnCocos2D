@@ -1115,6 +1115,7 @@
 				GCC_PREFIX_HEADER = "Cocos2D-Performance-Test/Prefix.pch";
 				"GCC_THUMB_SUPPORT[arch=armv6]" = NO;
 				INFOPLIST_FILE = "Cocos2D-Performance-Test/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1131,6 +1132,7 @@
 				GCC_PREFIX_HEADER = "Cocos2D-Performance-Test/Prefix.pch";
 				"GCC_THUMB_SUPPORT[arch=armv6]" = NO;
 				INFOPLIST_FILE = "Cocos2D-Performance-Test/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
