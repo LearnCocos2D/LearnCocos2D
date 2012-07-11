@@ -16,4 +16,7 @@
    <FileRef
       location = "group:Cocos2D-PixelPerfectCollisions/Cocos2D-PixelPerfectCollisions.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:RailCarDrivingOnTrackTest/RailCarDrivingOnTrackTest.xcodeproj">
+   </FileRef>
 </Workspace>
