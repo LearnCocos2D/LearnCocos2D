@@ -38,6 +38,9 @@
 	BOOL isRotating2;
 	BOOL invertSpeed2;
 	BOOL invertLokRotation;
+
+	CCSpriteBatchNode* dotBatch;
+	CCMotionStreak* streak;
 }
 
 +(id) scene;

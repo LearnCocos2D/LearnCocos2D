@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Cocos2D-CoordinateSpaces/Cocos2D-CoordinateSpaces.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Cocos2D-ZoomInOnMe/Cocos2D-ZoomInOnMe.xcodeproj">
    </FileRef>
    <FileRef
@@ -18,5 +21,8 @@
    </FileRef>
    <FileRef
       location = "group:RailCarDrivingOnTrackTest/RailCarDrivingOnTrackTest.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Scrolling/Cocos2D-Scrolling.xcodeproj">
    </FileRef>
 </Workspace>

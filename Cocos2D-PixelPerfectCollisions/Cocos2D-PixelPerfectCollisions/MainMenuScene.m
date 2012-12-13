@@ -34,8 +34,6 @@
 			CCLabelTTF* label = [CCLabelTTF labelWithString:@"Touch Collision Detection" fontName:fontName fontSize:fontSize];
 			CCMenuItem* item = [CCMenuItemLabel itemWithLabel:label block:^(id sender)
 			{
-				NSAssert(nil, @"upps, something went wrong!");
-				
 				CCScene* scene = [PixelPerfectTouchScene node];
 				[ReturnToMainMenuNode returnNodeWithParent:scene];
 				[[CCDirector sharedDirector] replaceScene:scene];
@@ -79,7 +77,7 @@
 		CGSize winSize = [CCDirector sharedDirector].winSize;
 		CCSprite* screenshotSprite = [CCSprite spriteWithFile:screenshotPath];
 		screenshotSprite.position = CGPointMake(winSize.width / 2, winSize.height / 2);
-		screenshotSprite.opacity = 100;
+		screenshotSprite.opacity = 220;
 		[self addChild:screenshotSprite];
 		[screenshotSprite.texture setAliasTexParameters];
 	}

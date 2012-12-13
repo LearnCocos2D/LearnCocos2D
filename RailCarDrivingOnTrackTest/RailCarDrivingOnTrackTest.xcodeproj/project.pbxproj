@@ -1127,6 +1127,7 @@
 				DCFB863115ADB16B00B88BCF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
