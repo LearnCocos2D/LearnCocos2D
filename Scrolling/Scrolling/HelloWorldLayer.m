@@ -67,7 +67,7 @@
 		CCLabelTTF* warn = [CCLabelTTF labelWithString:@"These demos require accelerometer input. Run them on a device!" fontName:@"Arial" fontSize:14];
 		warn.position = CGPointMake(240, 300);
 		warn.color = ccMAGENTA;
-		[self addChild:warn];
+		//[self addChild:warn];
 #endif
 	}
 	return self;
