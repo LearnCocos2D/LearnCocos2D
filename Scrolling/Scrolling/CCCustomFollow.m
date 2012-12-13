@@ -2,8 +2,7 @@
 //  CCCustomFollow.m
 //  Cocos2D-Scrolling
 //
-//  Created by Steffen Itterheim on 13.12.12.
-//  Copyright 2012 Steffen Itterheim. All rights reserved.
+//  Copyright Steffen Itterheim 2012. Distributed under MIT License.
 //
 
 #import "CCCustomFollow.h"

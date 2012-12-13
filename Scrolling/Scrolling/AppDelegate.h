@@ -2,8 +2,7 @@
 //  AppDelegate.h
 //  Scrolling
 //
-//  Created by Steffen Itterheim on 12.12.12.
-//  Copyright Steffen Itterheim 2012. All rights reserved.
+//  Copyright Steffen Itterheim 2012. Distributed under MIT License.
 //
 
 #import <UIKit/UIKit.h>
