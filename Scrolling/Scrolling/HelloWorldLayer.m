@@ -54,7 +54,7 @@
 		}];
 		
 		// Full flexibility but implementation is entirely up to you. May be counterintuitive to scroll layer in opposite direction.
-		CCMenuItem *itemManualScroll = [CCMenuItemFont itemWithString:@"Manual Scrolling" block:^(id sender) {
+		CCMenuItem *itemManualScroll = [CCMenuItemFont itemWithString:@"CCCustomFollow Scrolling" block:^(id sender) {
 			[[CCDirector sharedDirector] replaceScene:[ManualScrollingLayer scene]];
 		}];
 		

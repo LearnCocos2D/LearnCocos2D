@@ -1,0 +1,12 @@
+URL for the iDevBlogADay article discussing this project:
+
+http://www.learn-cocos2d.com/2012/12/...
+
+This project includes 4 demos for the four ways you can create a cocos2d scrolling view:
+- "Fake" scrolling
+- CCCamera scrolling
+- CCFollow scrolling
+- Manual (CCFollow subclass) scrolling
+
+Cocos2D version used:
+	cocos2d-iphone v2.1 beta 2

@@ -121,7 +121,7 @@ static const int kWorldTileHeight = 6;
 	[self.camera centerX:&centerX centerY:&centerY centerZ:&centerZ];
 	[self.camera eyeX:&eyeX eyeY:&eyeY eyeZ:&eyeZ];
 	
-	// set camera center & eye to follow player position (centered on screen, not testing for world boundaries)
+	// set camera center & eye to follow player position (centered on screen)
 	centerX = eyeX = (_player.position.x - _screenSize.width * 0.5f);
 	centerY = eyeY = (_player.position.y - _screenSize.height * 0.5f);
 	
@@ -133,7 +133,7 @@ static const int kWorldTileHeight = 6;
 	// update the camera values
 	[self.camera setCenterX:centerX centerY:centerY centerZ:centerZ];
 	[self.camera setEyeX:eyeX eyeY:eyeY eyeZ:eyeZ]; // you can modify eyeZ to zoom
-	//NSLog(@"Layer's CCCamera: center (%.1f, %.1f, %.1f) - eye (%.1f, %.1f, %.1f)", centerX, centerY, centerZ, eyeX, eyeY, eyeZ);
+	//NSLog(@"Layer's CCCamera: center (%.1f, %.1f, %f) - eye (%.1f, %.1f, %f)", centerX, centerY, centerZ, eyeX, eyeY, eyeZ);
 	
 	// simple collision test
 	_player.color = ccWHITE;
