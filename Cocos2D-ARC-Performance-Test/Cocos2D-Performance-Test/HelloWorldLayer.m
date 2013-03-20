@@ -78,12 +78,12 @@ static HelloWorldLayer* instance;
 	[pt test:kkPerformanceTestARCvsMRC_Autorelease];
 	[pt test:kkPerformanceTestARCvsMRC_Algorithm];
 	
+	[pt test:KKPerformanceTestTextureLoading];
+	[pt test:kkPerformanceTestNodeHierarchy];
+	[pt test:kkPerformanceTestArray];
 	[pt test:KKPerformanceTestObjectCreation];
 	[pt test:KKPerformanceTestMessaging];
 	[pt test:kkPerformanceTestObjectCompare];
-	[pt test:kkPerformanceTestArray];
-	//[pt test:KKPerformanceTestTextureLoading];
-	[pt test:kkPerformanceTestNodeHierarchy];
 	[pt test:kkPerformanceTestArithmetic];
 	[pt test:kkPerformanceTestMemory];
 	[pt test:KKPerformanceTestIO];

@@ -135,7 +135,7 @@
 {
 	CCTextureCache* cache = [CCTextureCache sharedTextureCache];
 	
-    BEGIN( k10IterationTestCount )
+    BEGIN( 1 )
 	CCTexture2D* tex = [cache addImage:@"textureatlas_RGB565.jpg"];
 	[cache removeTexture:tex];
     END()
@@ -183,7 +183,7 @@
 {
 	CCTextureCache* cache = [CCTextureCache sharedTextureCache];
 	
-    BEGIN( k10IterationTestCount )
+    BEGIN( 1 )
 	CCTexture2D* tex = [cache addImage:@"textureatlas_RGBA4444.jpg"];
 	[cache removeTexture:tex];
     END()
@@ -232,7 +232,7 @@
 {
 	CCTextureCache* cache = [CCTextureCache sharedTextureCache];
 	
-    BEGIN( k10IterationTestCount )
+    BEGIN( 1 )
 	CCTexture2D* tex = [cache addImage:@"textureatlas_RGBA5551.jpg"];
 	[cache removeTexture:tex];
     END()
@@ -281,7 +281,7 @@
 {
 	CCTextureCache* cache = [CCTextureCache sharedTextureCache];
 	
-    BEGIN( k10IterationTestCount )
+    BEGIN( 1 )
 	CCTexture2D* tex = [cache addImage:@"textureatlas_RGBA8888.jpg"];
 	[cache removeTexture:tex];
     END()
@@ -290,7 +290,7 @@
 {
 	CCTextureCache* cache = [CCTextureCache sharedTextureCache];
 	
-    BEGIN( k100IterationTestCount )
+    BEGIN( k100IterationTestCount / 3 )
 	CCTexture2D* tex = [cache addImage:@"textureatlas_RGBA8888.png"];
 	[cache removeTexture:tex];
     END()
@@ -299,7 +299,7 @@
 {
 	CCTextureCache* cache = [CCTextureCache sharedTextureCache];
 	
-    BEGIN( k100IterationTestCount )
+    BEGIN( k100IterationTestCount / 3 )
 	CCTexture2D* tex = [cache addImage:@"textureatlas_RGBA8888.pvr"];
 	[cache removeTexture:tex];
     END()
@@ -308,7 +308,7 @@
 {
 	CCTextureCache* cache = [CCTextureCache sharedTextureCache];
 	
-    BEGIN( k100IterationTestCount )
+    BEGIN( k100IterationTestCount / 3 )
 	CCTexture2D* tex = [cache addImage:@"textureatlas_RGBA8888.pvr.ccz"];
 	[cache removeTexture:tex];
     END()
@@ -317,7 +317,7 @@
 {
 	CCTextureCache* cache = [CCTextureCache sharedTextureCache];
 	
-    BEGIN( k100IterationTestCount )
+    BEGIN( k100IterationTestCount / 3 )
 	CCTexture2D* tex = [cache addImage:@"textureatlas_RGBA8888.pvr.gz"];
 	[cache removeTexture:tex];
     END()

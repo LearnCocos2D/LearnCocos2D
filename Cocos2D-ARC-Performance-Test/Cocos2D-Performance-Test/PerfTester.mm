@@ -118,7 +118,7 @@ struct Result
 		k10KIterationTestCount		= 10000;
 		k1KIterationTestCount		= 1000;
 		k100IterationTestCount		= 100;
-		k10IterationTestCount		= 10;
+		k10IterationTestCount		= 4;
 	}
 
 	Test testSels[100];
@@ -294,25 +294,27 @@ struct Result
 				{ "PVRTC4.pvr.ccz\0", @selector( testLoadTexture_PVRTC4_pvrccz ), },
 				{ "PVRTC4.pvr.gz\0", @selector( testLoadTexture_PVRTC4_pvrgz ), },
 
-				{ "RGB565.jpg\0", @selector( testLoadTexture_RGB565_jpg ), },
+				/*
+				//{ "RGB565.jpg\0", @selector( testLoadTexture_RGB565_jpg ), },
 				{ "RGB565.png\0", @selector( testLoadTexture_RGB565_png ), },
 				{ "RGB565.pvr\0", @selector( testLoadTexture_RGB565_pvr ), },
 				{ "RGB565.pvr.ccz\0", @selector( testLoadTexture_RGB565_pvrccz ), },
 				{ "RGB565.pvr.gz\0", @selector( testLoadTexture_RGB565_pvrgz ), },
 				
-				{ "RGBA4444.jpg\0", @selector( testLoadTexture_RGBA4444_jpg ), },
+				//{ "RGBA4444.jpg\0", @selector( testLoadTexture_RGBA4444_jpg ), },
 				{ "RGBA4444.png\0", @selector( testLoadTexture_RGBA4444_png ), },
 				{ "RGBA4444.pvr\0", @selector( testLoadTexture_RGBA4444_pvr ), },
 				{ "RGBA4444.pvr.ccz\0", @selector( testLoadTexture_RGBA4444_pvrccz ), },
 				{ "RGBA4444.pvr.gz\0", @selector( testLoadTexture_RGBA4444_pvrgz ), },
 
-				{ "RGBA5551.jpg\0", @selector( testLoadTexture_RGBA5551_jpg ), },
+				//{ "RGBA5551.jpg\0", @selector( testLoadTexture_RGBA5551_jpg ), },
 				{ "RGBA5551.png\0", @selector( testLoadTexture_RGBA5551_png ), },
 				{ "RGBA5551.pvr\0", @selector( testLoadTexture_RGBA5551_pvr ), },
 				{ "RGBA5551.pvr.ccz\0", @selector( testLoadTexture_RGBA5551_pvrccz ), },
 				{ "RGBA5551.pvr.gz\0", @selector( testLoadTexture_RGBA5551_pvrgz ), },
-
-				{ "RGBA8888.jpg\0", @selector( testLoadTexture_RGBA8888_jpg ), },
+				 */
+				
+				//{ "RGBA8888.jpg\0", @selector( testLoadTexture_RGBA8888_jpg ), },
 				{ "RGBA8888.png\0", @selector( testLoadTexture_RGBA8888_png ), },
 				{ "RGBA8888.pvr\0", @selector( testLoadTexture_RGBA8888_pvr ), },
 				{ "RGBA8888.pvr.ccz\0", @selector( testLoadTexture_RGBA8888_pvrccz ), },
