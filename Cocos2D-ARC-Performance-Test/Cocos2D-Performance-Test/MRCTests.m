@@ -81,9 +81,12 @@
 -(void) runGeneticAlgorithm
 {
 	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+	
 	NSString* sequence = @"lks89Ü?c§cngW3d432d7cf143497fb5a95b280f873b16iysöl5cöä#ke2ß0B%	()=BÄ´Qyaix4@\nElapsou5ö8o7	5V4*j6ß71655b7c7b6cb41128dffc046773acfbc8w3y,ic;9uwo9ly8WV)+:.573j 4jpew Q'C)96ß#8m)$VNwv49";
 	JASGeneticAlgo *algo = [[JASGeneticAlgo alloc] initWithTargetSequence:sequence];
 	[algo execute];
+	[algo release];
+	
 	[pool release];
 }
 

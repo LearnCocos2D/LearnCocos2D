@@ -14,8 +14,11 @@
 #define MUTATION_DELTA_MAX (6)                              // Mutate one gene by no more than +/-5.
 #define MUTATION_RATE	    (0.20f)                          // Mutate about 20% of the time
 #define MUTATION_THRESHOLD (ARC4RANDOM_MAX * MUTATION_RATE) // This is used to determine if a mutation should occur.
-#define RANDOM()           (arc4random())                   // Creates a random positive whole number
-#define RANDOM_MOD(__MOD)  (arc4random_uniform(__MOD))      // Creates a random positive whole number no greater than __MOD-1 
+//#define RANDOM()           (arc4random())                   // Creates a random positive whole number
+//#define RANDOM_MOD(__MOD)  (arc4random_uniform(__MOD))      // Creates a random positive whole number no greater than __MOD-1
+
+#define RANDOM()           (1234567)                   // Creates a random positive whole number
+#define RANDOM_MOD(__MOD)  (__MOD - 1)      // Creates a random positive whole number no greater than __MOD-1
 
 @interface JASChromosomeARC ()
 @property (nonatomic, strong) NSNumber        *cachedOverallFitness;
@@ -68,6 +71,11 @@
         }
     }
     return self;
+}
+
+-(void) dealloc
+{
+	//NSLog(@"dealloc %@", self);
 }
 
 - (JASChromosomeARC *)mateWithChromosome:(JASChromosomeARC *)other

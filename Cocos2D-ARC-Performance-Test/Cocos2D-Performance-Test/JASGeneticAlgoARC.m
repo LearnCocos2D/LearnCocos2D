@@ -51,6 +51,11 @@
     return self;
 }
 
+-(void) dealloc
+{
+	//NSLog(@"dealloc %@", self);
+}
+
 - (void)execute
 {
     [self populate];

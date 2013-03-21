@@ -45,9 +45,19 @@
     if (self)
     {
         self.targetSequence = sequence;
-        self.population = [NSMutableArray arrayWithCapacity:POPULATION_SIZE];
+        self.population = [[NSMutableArray arrayWithCapacity:POPULATION_SIZE] retain];
     }
     return self;
+}
+
+-(void) dealloc
+{
+	//NSLog(@"dealloc %@", self);
+	[self.population release];
+	self.population = nil;
+	[self.targetSequence release];
+	self.targetSequence = nil;
+	[super dealloc];
 }
 
 - (void)execute
@@ -64,10 +74,10 @@
     JASChromosome *chromo;
     for (int i = 0; i < POPULATION_SIZE; ++i)
     {
-        chromo = [[JASChromosome alloc] initWithGeneCount:geneCount];
+        chromo = [[[JASChromosome alloc] initWithGeneCount:geneCount] autorelease];
         [self.population addObject:chromo];
-		[chromo release];
     }
+	chromo = nil;
 }
 
 - (void)run
@@ -101,12 +111,23 @@
         index2 = i + 1;
         chromo1 = [self.population objectAtIndex:index1];
         chromo2 = [self.population objectAtIndex:index2];
-        keepFirst = [chromo1 isFitterThanChromosome:chromo2 
+		// SIMULATE ARC BEHAVIOR
+		[chromo1 retain];
+		[chromo2 retain];
+
+        keepFirst = [chromo1 isFitterThanChromosome:chromo2
                                   forTargetSequence:seq];
         deadIndex = keepFirst ? index2 : index1;
         child = [chromo1 mateWithChromosome:chromo2];
+		// SIMULATE ARC BEHAVIOR
+		[child retain];
         [self.population replaceObjectAtIndex:deadIndex 
                                    withObject:child];
+		
+		// SIMULATE ARC BEHAVIOR
+		[chromo1 release];
+		[chromo2 release];
+		[child release];
     }
 }
 
@@ -134,7 +155,13 @@
             [contender isFitterThanChromosome:champion 
                             forTargetSequence:seq])
         {
+			// SIMULATE ARC BEHAVIOR
+			[champion release];
+
             champion = contender;
+			
+			// SIMULATE ARC BEHAVIOR
+			[champion retain];
         }
     }
     NSString *fittest = champion.geneSequence;
@@ -148,6 +175,9 @@
     {
         //NSLog(@"Fittest sequence for generation #%ld: %@", (long)self.generations, fittest);
     }
+	
+	// SIMULATE ARC BEHAVIOR
+	[champion release];
 }
 
 @end

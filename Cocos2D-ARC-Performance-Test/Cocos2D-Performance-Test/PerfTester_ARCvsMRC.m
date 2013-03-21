@@ -18,14 +18,14 @@
 {
 	BEGIN ( 50 )
 	[arcTest runGeneticAlgorithm];
-	NSLog(@"%i out of %i complete", i, iters);
+	//NSLog(@"%i out of %i complete", i, iters);
 	END()
 }
 -(void) testGeneticAlgorithmMRC
 {
 	BEGIN ( 50 )
 	[mrcTest runGeneticAlgorithm];
-	NSLog(@"%i out of %i complete", i, iters);
+	//NSLog(@"%i out of %i complete", i, iters);
 	END()
 }
 
@@ -34,7 +34,7 @@
 	const char* string = "ein string, zwei string, drei string, vier string, fünf string, sechs string, sieben string, acht string\0";
 	NSData* data = [NSData dataWithBytes:string length:strlen(string)];
 	
-	BEGIN ( k10KIterationTestCount )
+	BEGIN ( k1KIterationTestCount * 5 )
 	[arcTest data:data containsCString:"sieben string"];
 	END()
 }
@@ -44,7 +44,7 @@
 	const char* string = "ein string, zwei string, drei string, vier string, fünf string, sechs string, sieben string, acht string\0";
 	NSData* data = [NSData dataWithBytes:string length:strlen(string)];
 	
-	BEGIN ( k10KIterationTestCount )
+	BEGIN ( k1KIterationTestCount * 5 )
 	[mrcTest data:data containsCString:"sieben string"];
 	END()
 }

@@ -52,8 +52,8 @@
     self = [super init];
     if (self)
     {
-        self.fitnessBuffer = [NSMutableArray arrayWithCapacity:count];
-        self.geneBuffer = [NSMutableString stringWithCapacity:count];
+        self.fitnessBuffer = [[NSMutableArray arrayWithCapacity:count] retain];
+        self.geneBuffer = [[NSMutableString stringWithCapacity:count] retain];
         for (int geneIndex = 0; geneIndex < count; ++geneIndex) 
         {
             // Append a random character between ' ' and 'Z'.
@@ -66,8 +66,22 @@
     return self;
 }
 
+-(void) dealloc
+{
+	//NSLog(@"dealloc %@", self);
+	[self.fitnessBuffer release];
+	self.fitnessBuffer = nil;
+	[self.geneBuffer release];
+	self.geneBuffer = nil;
+	self.cachedOverallFitness = nil;
+	[super dealloc];
+}
+
 - (JASChromosome *)mateWithChromosome:(JASChromosome *)other
 {
+	// SIMULATE ARC BEHAVIOR
+	[other retain];
+	
     // Create an empty chromosome.
     JASChromosome *child = [[JASChromosome alloc] initWithGeneCount:0];
     
@@ -84,7 +98,11 @@
     {
         // Get the same gene from both chromosomes.
         mine   = [self.fitnessBuffer  objectAtIndex:i];
-        theirs = [other.fitnessBuffer objectAtIndex:i]; 
+        theirs = [other.fitnessBuffer objectAtIndex:i];
+		
+		// SIMULATE ARC BEHAVIOR
+		[mine retain];
+		[theirs retain];
 
         // Determine which chromosome's gene is fitter.
         winner = [mine integerValue] > [theirs integerValue] 
@@ -93,8 +111,13 @@
         
         // Add the winner's gene to the child chromosome.
         geneValue = [winner.geneBuffer characterAtIndex:i];
+		
         gene = [NSString stringWithFormat:@"%c", geneValue];
         [child.geneBuffer appendString:gene];
+		
+		// SIMULATE ARC BEHAVIOR
+		[mine release];
+		[theirs release];
     }
     
     // Sometimes randomly modify the child's gene sequence.
@@ -103,14 +126,24 @@
         [child mutate];
     }
     
+	// SIMULATE ARC BEHAVIOR
+	[other release];
+
     return [child autorelease];
 }
 
 - (BOOL)isFitterThanChromosome:(JASChromosome *)other 
              forTargetSequence:(NSString *)seq
 {
+	// SIMULATE ARC BEHAVIOR
+	[other retain];
+
     NSInteger mine   = [self  fitnessForTargetSequence:seq];
     NSInteger theirs = [other fitnessForTargetSequence:seq];
+	
+	// SIMULATE ARC BEHAVIOR
+	[other release];
+	
     return mine > theirs;
 }
 
