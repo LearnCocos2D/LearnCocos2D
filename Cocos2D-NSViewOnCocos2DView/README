@@ -1,3 +1,5 @@
+How to display NSView objects on top of cocos2d-iphone's OpenGL view on Mac OS X by using a transparent overlay window.
+
 URL for the iDevBlogADay article discussing this project:
 
 http://www.learn-cocos2d.com/2013/04/display-nsview-top-cocos2d-iphone-opengl-view-mac
