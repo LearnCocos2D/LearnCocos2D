@@ -138,6 +138,9 @@ enum {
 	
 	// Keep in mind: you're responsible for removing NSView, changing the scene won't do squat to your existing NSView!
 
+	// avoid potential crash by clicking the button repeatedly due to delegate (self) being released
+	[button setTarget:nil];
+
 	// This code simply removes all existing NSView from the overlay window
 	[OverlayAppDelegate removeAllSubviews];
 	

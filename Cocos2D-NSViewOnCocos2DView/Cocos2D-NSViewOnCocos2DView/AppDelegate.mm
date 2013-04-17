@@ -121,7 +121,8 @@
 {
 	// By using reverseObjectEnumerator the subviews collection can be modified while enumerating it
 	// because it's legal to remove the last item of an array during enumeration (ie this "unrolls" the array from back to front)
-	for (NSView* view in [[[self overlayWindowContentView] subviews] reverseObjectEnumerator])
+	NSArray* subviews = [self overlayWindowContentView].subviews;
+	for (NSView* view in [subviews reverseObjectEnumerator])
 	{
 		[view removeFromSuperview];
 	}
