@@ -1,0 +1,15 @@
+Adding Storyboards to an existing Cocos2D project (here with Box2D)
+
+- Storyboards from scratch
+- autorotation
+- Box2D
+- ARC
+- KTCocosViewController to handle cocos2d Director & View init
+- KTCocosNavigationController to handle scene changes, memory warnings, and UIApplicationDelegate stuff
+
+URL for the article discussing this project:
+
+http://www.koboldtouch.com/x/iQGC
+
+Cocos2D version used:
+	cocos2d-iphone v2.1 (rc2)
