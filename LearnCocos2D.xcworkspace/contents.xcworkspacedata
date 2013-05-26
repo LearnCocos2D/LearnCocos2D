@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Cocos2D-Storyboards/Cocos2D-Storyboards.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:Cocos2D-NSViewOnCocos2DView/Cocos2D-NSViewOnCocos2DView.xcodeproj">
    </FileRef>
    <FileRef
@@ -30,5 +27,8 @@
    </FileRef>
    <FileRef
       location = "group:Scrolling/Cocos2D-Scrolling.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Cocos2D-With-Storyboards/Cocos2D-With-Storyboards.xcodeproj">
    </FileRef>
 </Workspace>
