@@ -2,8 +2,10 @@ Cocos2D Projects written for Steffen Itterheim's bi-weekly iDevBlogADay post.
 
 Visit Steffen's Learn Cocos2D websites:
 http://www.learn-cocos2d.com (blog & store)
-http://www.learn-cocos2d.com/tag/idevblogaday/ (list of iDevBlogADay posts)
+
 http://www.kobold2d.com (an improved Cocos2D)
+
+http://www.koboldtouch.com (the successor of Kobold2D, actively maintained, supported and continuously improved)
 
 
 This is an Xcode 4 workspace containing multiple Cocos2D projects. Every time I write a new iDevBlogADay post that includes a source code project, I'll add it to this repository. Occasionally I may even update the source code to include new features not covered by the original blog post. 
