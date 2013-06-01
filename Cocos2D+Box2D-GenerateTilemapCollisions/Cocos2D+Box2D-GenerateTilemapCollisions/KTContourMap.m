@@ -146,8 +146,7 @@ static NSInteger neighborOffsets[8];
 				//NSLog(@"\tNew neighbor at : %@ %@", [self coordStringFromIndex:neighborTile], [self nameForNeighborIndex:neighborIndex]);
 				
 				// uncomment this and set a breakpoint to see the map tracing contours tile after tile
-				[self dumpBlockMap];
-				NSLog(@"Trace of contour '%c' complete!", contourBlockID);
+				//[self dumpBlockMap];
 			}
 			else
 			{
