@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Cocos2D+Box2D-GenerateTilemapCollisions/Cocos2D+Box2D-GenerateTilemapCollisions.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Cocos2D-NSViewOnCocos2DView/Cocos2D-NSViewOnCocos2DView.xcodeproj">
    </FileRef>
    <FileRef

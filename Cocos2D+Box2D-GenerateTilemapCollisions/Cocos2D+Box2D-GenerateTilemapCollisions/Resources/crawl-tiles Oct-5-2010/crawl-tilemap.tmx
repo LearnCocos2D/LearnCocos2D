@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="15" height="30" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="crawl-tiles" tilewidth="32" tileheight="32" spacing="2" margin="2">
+  <image source="crawl-tiles.png" trans="ff3366" width="512" height="512"/>
+ </tileset>
+ <layer name="tiles" width="15" height="30">
+  <data encoding="base64" compression="zlib">
+   eJyNlUsOwyAMRLlsq96h27QKkGx73iYSlkYvY9qFRQz2+MPgfEopnz9kS/bbIatIle829NdYwzZ8V9FX4J56H34Rp8GmA0Mxn8gj1kWEtayQt2D34RN6NX4deNoLh8/cs3xU3ybnKntS12sI/fV+MsxarvlETtXY74hbTVz2ohl810/6VKmZ51uC72I0icXaHd/ZD8Y//ZaJD33jrdFWe7eVa18cJ3XN7nZWF/dczrwTxzn21vGHnIjYu4nr+qZxehJ/9tZnvHR+wW3mPuMVZwR5wtnmsMh55kluRK5uFmUzKeuT4v3qU+Th5iTfOP8Lt0Puot9lj2fUH0P02wltv35B9tY=
+  </data>
+ </layer>
+</map>

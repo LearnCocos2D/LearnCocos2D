@@ -1,0 +1,11 @@
+Generating Physics Collision Shapes from a Tilemap using the Moore Neighborhood algorithm
+
+The example code uses Box2D but the generated contour line segments can be used for any physics engine or purpose.
+
+URL for the article discussing this project:
+ http://www.learn-cocos2d.com/2013/06/generate-tilemap-physics-collision-shapes-cocos2d
+
+Cocos2D version used:
+	cocos2d-iphone v2.1 (rc2)
+Box2D version used:
+	Box2D v2.2.1
