@@ -32,6 +32,68 @@
 
 @implementation PerfTester (Messaging)
 
+-(void) setPointNotSynchronized:(CGPoint)point
+{
+	_thePoint = point;
+}
+
+-(void) setPointSynchronized:(CGPoint)point
+{
+	@synchronized(self)
+	{
+		_thePoint = point;
+	}
+}
+
+-(void) testSetterWithoutRespondsToSelectorCheck
+{
+	CGPoint p = CGPointMake(123.45, 67.89);
+    BEGIN( k100MMIterationTestCount )
+	[self setPointNotSynchronized:p];
+    END()
+}
+
+-(void) testSetterWithRespondsToSelectorCheck
+{
+	CGPoint p = CGPointMake(123.45, 67.89);
+    BEGIN( k10MMIterationTestCount )
+	if ([self respondsToSelector:@selector(setPointNotSynchronized:)])
+	{
+		[self setPointNotSynchronized:p];
+	}
+    END()
+}
+
+-(void) testSetterWithCachedSelectorRespondsToSelectorCheck
+{
+	CGPoint p = CGPointMake(123.45, 67.89);
+	SEL selector = @selector(setPointNotSynchronized:);
+	int32_t respondsTo = [self respondsToSelector:selector];
+	
+    BEGIN( k100MMIterationTestCount )
+	if (respondsTo)
+	{
+		[self setPointNotSynchronized:p];
+	}
+    END()
+}
+
+-(void) testSetterNotSynchronized
+{
+	CGPoint p = CGPointMake(123.45, 67.89);
+    BEGIN( k100MMIterationTestCount )
+	[self setPointNotSynchronized:p];
+    END()
+}
+
+-(void) testSetterSynchronized
+{
+	CGPoint p = CGPointMake(987.65, 4.321);
+    BEGIN( k10MMIterationTestCount )
+	[self setPointSynchronized:p];
+    END()
+}
+
 -(void) testPrivateVariableReadWrite
 {
 	StubObject* stub = [[StubObject alloc] init];

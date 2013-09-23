@@ -72,8 +72,8 @@ static HelloWorldLayer* instance;
 
 	pt = [[PerfTester alloc] init];
 	pt.quickTest = NO;
-	[pt test:KKPerformanceTestObjectCreation];
 	[pt test:KKPerformanceTestMessaging];
+	[pt test:KKPerformanceTestObjectCreation];
 	[pt test:kkPerformanceTestObjectCompare];
 	[pt test:kkPerformanceTestArray];
 	[pt test:KKPerformanceTestTextureLoading];

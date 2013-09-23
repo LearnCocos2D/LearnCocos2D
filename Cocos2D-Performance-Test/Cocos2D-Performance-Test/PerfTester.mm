@@ -273,12 +273,22 @@ struct Result
 		case KKPerformanceTestMessaging:
 		{
 			Test mytestSels[] = {
+				{ @"ObjC setter w/o responds to selector", @selector( testSetterWithoutRespondsToSelectorCheck ), },
+				{ @"ObjC setter with responds to selector", @selector( testSetterWithRespondsToSelectorCheck ), },
+				{ @"ObjC setter with responds to selector (cached)", @selector( testSetterWithCachedSelectorRespondsToSelectorCheck ), },
+				
+				{ @"ObjC setter, not synchronized", @selector( testSetterNotSynchronized ), },
+				{ @"ObjC setter, synchronized", @selector( testSetterSynchronized ), },
+
 				{ @"ObjC class nonatomic property message send", @selector( testPrivateVariableReadWrite ), },
 				{ @"ObjC class nonatomic property dot notation", @selector( testPrivateVariableReadWriteProperty ), },
 				{ @"ObjC class atomic property message send", @selector( testPrivateVariableReadWriteAtomic ), },
 				{ @"ObjC class atomic property dot notation", @selector( testPrivateVariableReadWriteAtomicProperty ), },
 				{ @"ObjC class @public variable", @selector( testPublicVariableReadWrite ), },
-				
+
+				{ @"ObjC 2nd run setter, not synchronized", @selector( testSetterNotSynchronized ), },
+				{ @"ObjC 2nd run setter, synchronized", @selector( testSetterSynchronized ), },
+
 				{ @"Objective-C NSArray message send", @selector( testMessagingArray ), },
 				{ @"Objective-C CCArray message send", @selector( testMessagingCCArray ), },
 				{ @"Objective-C NSArray enumerateWithBlock msg send", @selector( testMessagingArrayUsingBlock ), },

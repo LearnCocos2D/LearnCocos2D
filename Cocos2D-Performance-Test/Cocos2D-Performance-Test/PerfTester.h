@@ -66,6 +66,8 @@ for( i = 1; i <= iters; i++ ) {
 	float floatRes;
 	double doubleRes;
 	double doubleDiv;
+	
+	CGPoint _thePoint;
 }
 
 @property (nonatomic) BOOL quickTest;
