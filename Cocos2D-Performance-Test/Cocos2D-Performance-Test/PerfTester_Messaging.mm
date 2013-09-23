@@ -45,6 +45,44 @@
 	}
 }
 
+-(void) testSendMessageToNilObject
+{
+	PerfTester* target = nil;
+    BEGIN( k100MMIterationTestCount )
+	[target setPointNotSynchronized:CGPointMake(100, 100)];
+    END()
+}
+
+-(void) testSendMessageToNilObjectWithNilTest
+{
+	PerfTester* target = nil;
+    BEGIN( k100MMIterationTestCount )
+	if (target)
+	{
+		[target setPointNotSynchronized:CGPointMake(100, 100)];
+	}
+    END()
+}
+
+-(void) testSendMessageToNilObjectWithReturnValue
+{
+	PerfTester* target = nil;
+    BEGIN( k100MMIterationTestCount )
+	[target description];
+    END()
+}
+
+-(void) testSendMessageToNilObjectWithReturnValueWithNilTest
+{
+	PerfTester* target = nil;
+    BEGIN( k100MMIterationTestCount )
+	if (target)
+	{
+		[target description];
+	}
+    END()
+}
+
 -(void) testSetterWithoutRespondsToSelectorCheck
 {
 	CGPoint p = CGPointMake(123.45, 67.89);

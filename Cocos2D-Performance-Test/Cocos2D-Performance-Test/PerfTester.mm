@@ -273,6 +273,11 @@ struct Result
 		case KKPerformanceTestMessaging:
 		{
 			Test mytestSels[] = {
+				{ @"ObjC send msg to nil selector", @selector( testSendMessageToNilObject ), },
+				{ @"ObjC send msg to nil selector (with nil test)", @selector( testSendMessageToNilObjectWithNilTest ), },
+				{ @"ObjC send msg to nil selector with retval", @selector( testSendMessageToNilObjectWithReturnValue ), },
+				{ @"ObjC send msg to nil selector with retval (with nil test)", @selector( testSendMessageToNilObjectWithReturnValueWithNilTest ), },
+
 				{ @"ObjC setter w/o responds to selector", @selector( testSetterWithoutRespondsToSelectorCheck ), },
 				{ @"ObjC setter with responds to selector", @selector( testSetterWithRespondsToSelectorCheck ), },
 				{ @"ObjC setter with responds to selector (cached)", @selector( testSetterWithCachedSelectorRespondsToSelectorCheck ), },
