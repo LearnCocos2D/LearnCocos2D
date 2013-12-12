@@ -13,6 +13,7 @@
 
 
 #import "PerfTester.h"
+#import <pthread.h>
 
 @interface StubObject : NSObject
 {
@@ -32,17 +33,35 @@
 
 @implementation PerfTester (Messaging)
 
--(void) setPointNotSynchronized:(CGPoint)point
+-(void) testSetterWithMutexLock
 {
-	_thePoint = point;
+	CGPoint p = CGPointMake(123, 456);
+	pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
+    BEGIN( k10MMIterationTestCount )
+	pthread_mutex_lock(&mutex);
+	CGFloat temp = p.x;
+	p.x = p.y;
+	p.y = temp;
+	pthread_mutex_unlock(&mutex);
+    END()
+	pthread_mutex_destroy(&mutex);
 }
 
--(void) setPointSynchronized:(CGPoint)point
+-(void) testSetterWithDispatchSyncLock
 {
-	@synchronized(self)
-	{
-		_thePoint = point;
-	}
+	dispatch_queue_t queue = dispatch_queue_create("q", nil);
+
+	__block CGPoint p = CGPointMake(123, 456);
+	
+    BEGIN( k10MMIterationTestCount )
+	dispatch_sync(queue, ^{
+		CGFloat temp = p.x;
+		p.x = p.y;
+		p.y = temp;
+	});
+    END()
+	
+	dispatch_release(queue);
 }
 
 -(void) testSendMessageToNilObject
@@ -80,6 +99,34 @@
 	{
 		[target description];
 	}
+    END()
+}
+
+-(void) testRespondsToSelectorSucceeds
+{
+    BEGIN( k10MMIterationTestCount )
+	[self respondsToSelector:@selector(setPointNotSynchronized:)];
+    END()
+}
+
+-(void) testRespondsToSelectorFails
+{
+    BEGIN( k10MMIterationTestCount )
+	[self respondsToSelector:@selector(setWindow:)];
+    END()
+}
+
+-(void) testConformsToProctolSucceeds
+{
+    BEGIN( k1MMIterationTestCount )
+	[self conformsToProtocol:@protocol(PointSynchronizedProtocol)];
+    END()
+}
+
+-(void) testConformsToProtocolFails
+{
+    BEGIN( k1MMIterationTestCount )
+	[self conformsToProtocol:@protocol(NotImplementedProtocol)];
     END()
 }
 

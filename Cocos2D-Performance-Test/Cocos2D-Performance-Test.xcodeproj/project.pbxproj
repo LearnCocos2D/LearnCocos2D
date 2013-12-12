@@ -534,20 +534,9 @@
 		DC874D9C146987A100F8FB19 /* Cocos2D-Performance-Test */ = {
 			isa = PBXGroup;
 			children = (
+				DCC88D48183FB2E000E12A58 /* PerfTest */,
 				DC874F001469887100F8FB19 /* HelloWorldLayer.h */,
 				DC874F011469887100F8FB19 /* HelloWorldLayer.m */,
-				DC874EFD1469885500F8FB19 /* PerfTester.h */,
-				DC874EFE1469885500F8FB19 /* PerfTester.mm */,
-				DCFE02BC146B2654009999E3 /* PerfTester_Arithmetic.mm */,
-				DCFE02D3146B49EF009999E3 /* PerfTester_Array.mm */,
-				DCFE02B9146B2475009999E3 /* PerfTester_Memory.mm */,
-				DCFE02BE146B278E009999E3 /* PerfTester_ObjectCreation.mm */,
-				DC1A793C1472CFCA00909512 /* PerfTester_TextureLoading.mm */,
-				DCFE02CF146B4380009999E3 /* PerfTester_Messaging.mm */,
-				DCFE02D1146B43D2009999E3 /* PerfTester_IO.mm */,
-				DCFE02CD146B41D1009999E3 /* PerfTester_Misc.mm */,
-				DCD3FF741472ED2E00BAA583 /* PerfTester_NodeHierarchy.mm */,
-				DCD6DE42147E611A00107FC4 /* PerfTester_ObjectCompare.mm */,
 				DC874EEE146987A400F8FB19 /* AppDelegate.h */,
 				DC874EEF146987A400F8FB19 /* AppDelegate.m */,
 				DC874EF1146987A400F8FB19 /* RootViewController.h */,
@@ -846,6 +835,25 @@
 				DC874EEC146987A400F8FB19 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DCC88D48183FB2E000E12A58 /* PerfTest */ = {
+			isa = PBXGroup;
+			children = (
+				DC874EFD1469885500F8FB19 /* PerfTester.h */,
+				DC874EFE1469885500F8FB19 /* PerfTester.mm */,
+				DCFE02BC146B2654009999E3 /* PerfTester_Arithmetic.mm */,
+				DCFE02D3146B49EF009999E3 /* PerfTester_Array.mm */,
+				DCFE02B9146B2475009999E3 /* PerfTester_Memory.mm */,
+				DCFE02BE146B278E009999E3 /* PerfTester_ObjectCreation.mm */,
+				DC1A793C1472CFCA00909512 /* PerfTester_TextureLoading.mm */,
+				DCFE02CF146B4380009999E3 /* PerfTester_Messaging.mm */,
+				DCFE02D1146B43D2009999E3 /* PerfTester_IO.mm */,
+				DCFE02CD146B41D1009999E3 /* PerfTester_Misc.mm */,
+				DCD3FF741472ED2E00BAA583 /* PerfTester_NodeHierarchy.mm */,
+				DCD6DE42147E611A00107FC4 /* PerfTester_ObjectCompare.mm */,
+			);
+			name = PerfTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

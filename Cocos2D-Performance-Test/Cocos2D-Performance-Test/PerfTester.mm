@@ -273,6 +273,15 @@ struct Result
 		case KKPerformanceTestMessaging:
 		{
 			Test mytestSels[] = {
+				
+				{ @"Responds to Selector (succeeds)", @selector( testRespondsToSelectorSucceeds ), },
+				{ @"Responds to Selector (fails)", @selector( testRespondsToSelectorFails ), },
+				{ @"Conforms to Protocol (succeeds)", @selector( testConformsToProctolSucceeds ), },
+				{ @"Conforms to Protocol (fails)", @selector( testConformsToProtocolFails ), },
+				
+				{ @"ObjC setter, mutex lock", @selector( testSetterWithMutexLock ), },
+				{ @"ObjC setter, dispatch sync lock", @selector( testSetterWithDispatchSyncLock ), },
+				
 				{ @"ObjC send msg to nil selector", @selector( testSendMessageToNilObject ), },
 				{ @"ObjC send msg to nil selector (with nil test)", @selector( testSendMessageToNilObjectWithNilTest ), },
 				{ @"ObjC send msg to nil selector with retval", @selector( testSendMessageToNilObjectWithReturnValue ), },
@@ -531,5 +540,18 @@ struct Result
 	printf("\n\n\n");
 }
 
+
+-(void) setPointNotSynchronized:(CGPoint)point
+{
+	_thePoint = point;
+}
+
+-(void) setPointSynchronized:(CGPoint)point
+{
+	@synchronized(self)
+	{
+		_thePoint = point;
+	}
+}
 
 @end

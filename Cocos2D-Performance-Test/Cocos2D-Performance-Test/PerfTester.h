@@ -41,7 +41,18 @@ for( i = 1; i <= iters; i++ ) {
 } \
 [self endTestWithIterations: iters];
 
-@interface PerfTester : NSObject
+@protocol PointSynchronizedProtocol <NSObject>
+@required
+-(void) setPointNotSynchronized:(CGPoint)point;
+-(void) setPointSynchronized:(CGPoint)point;
+@end
+
+@protocol NotImplementedProtocol <NSObject>
+@required
+-(void) setWindow:(UIWindow*)window;
+@end
+
+@interface PerfTester : NSObject <PointSynchronizedProtocol>
 {
     uint64_t	mStartTime, mEndTime;
     int			mIterations;
