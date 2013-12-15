@@ -11,6 +11,7 @@
 #import "cocos2d-ui.h"
 
 #define USE_BATCH_NODE 1
+#define BENCHMARK_IMAGE_NAME @"benchmark_object.png"
 const double TARGET_FRAMERATE = 30.0;
 
 @implementation HelloWorldLayer
@@ -38,7 +39,7 @@ const double TARGET_FRAMERATE = 30.0;
     {
 		[CCDirector sharedDirector].displayStats = NO;
 		[CCDirector sharedDirector].animationInterval = 1.0 / 60.0;
-		[[CCFileUtils sharedFileUtils] setiPadSuffix:@"-hd"];
+		//[[CCFileUtils sharedFileUtils] setiPadSuffix:@"-hd"];
 		[[CCFileUtils sharedFileUtils] setiPadRetinaDisplaySuffix:@"-hd"];
 		
 		CCSprite* background = [CCSprite spriteWithImageNamed:@"background.jpg"];
@@ -47,7 +48,7 @@ const double TARGET_FRAMERATE = 30.0;
 		background.rotation = 270;
 		[self addChild:background];
 		
-		_texture = [CCTexture textureWithFile:@"benchmark_object.png"];
+		_texture = [CCTexture textureWithFile:BENCHMARK_IMAGE_NAME];
 		NSLog(@"benchmark texture dimension in pixels: {%.0f, %.0f}", _texture.contentSizeInPixels.width, _texture.contentSizeInPixels.height);
         
         // the container will hold all test objects

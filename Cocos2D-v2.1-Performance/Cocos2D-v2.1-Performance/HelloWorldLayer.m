@@ -11,6 +11,7 @@
 
 
 #define USE_BATCH_NODE 1
+#define BENCHMARK_IMAGE_NAME @"benchmark_object.png"
 const double TARGET_FRAMERATE = 30.0;
 
 @implementation HelloWorldLayer
@@ -46,7 +47,7 @@ const double TARGET_FRAMERATE = 30.0;
 		background.rotation = 270;
 		[self addChild:background];
 
-        _texture = [[CCTextureCache sharedTextureCache] addImage:@"benchmark_object.png"];
+        _texture = [[CCTextureCache sharedTextureCache] addImage:BENCHMARK_IMAGE_NAME];
 		NSLog(@"benchmark texture dimension in pixels: {%.0f, %.0f}", _texture.contentSizeInPixels.width, _texture.contentSizeInPixels.height);
 
         // the container will hold all test objects

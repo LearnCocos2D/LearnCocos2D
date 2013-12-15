@@ -210,6 +210,8 @@
 		DC8808C01859FE27009664C5 /* background-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DC8808BE1859FE27009664C5 /* background-hd.jpg */; };
 		DC8808C4185A0AF7009664C5 /* background@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DC8808C2185A0AF7009664C5 /* background@2x.jpg */; };
 		DC8808C5185A0AF7009664C5 /* benchmark_object@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8808C3185A0AF7009664C5 /* benchmark_object@2x.png */; };
+		DC8808CC185DEFF4009664C5 /* benchmark_object_tiny.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8808CA185DEFF3009664C5 /* benchmark_object_tiny.png */; };
+		DC8808CD185DEFF4009664C5 /* benchmark_object_tiny-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8808CB185DEFF3009664C5 /* benchmark_object_tiny-hd.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -638,6 +640,8 @@
 		DC8808BE1859FE27009664C5 /* background-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-hd.jpg"; sourceTree = "<group>"; };
 		DC8808C2185A0AF7009664C5 /* background@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background@2x.jpg"; sourceTree = "<group>"; };
 		DC8808C3185A0AF7009664C5 /* benchmark_object@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "benchmark_object@2x.png"; sourceTree = "<group>"; };
+		DC8808CA185DEFF3009664C5 /* benchmark_object_tiny.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = benchmark_object_tiny.png; sourceTree = "<group>"; };
+		DC8808CB185DEFF3009664C5 /* benchmark_object_tiny-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "benchmark_object_tiny-hd.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -696,6 +700,8 @@
 		DC33A3631859D1D200A68825 /* Cocos2D-v3.0-alpha-Performance */ = {
 			isa = PBXGroup;
 			children = (
+				DC8808CA185DEFF3009664C5 /* benchmark_object_tiny.png */,
+				DC8808CB185DEFF3009664C5 /* benchmark_object_tiny-hd.png */,
 				DC8808C2185A0AF7009664C5 /* background@2x.jpg */,
 				DC8808C3185A0AF7009664C5 /* benchmark_object@2x.png */,
 				DC8808BD1859FE27009664C5 /* background.jpg */,
@@ -1580,11 +1586,13 @@
 				DC33A37B1859D1D200A68825 /* Icon-120.png in Resources */,
 				DC33A5791859D1D400A68825 /* LICENSE_CCBReader.txt in Resources */,
 				DC33A3711859D1D200A68825 /* Icon@2x.png in Resources */,
+				DC8808CC185DEFF4009664C5 /* benchmark_object_tiny.png in Resources */,
 				DC33A3831859D1D200A68825 /* Icon-Small@2x.png in Resources */,
 				DC33A3751859D1D200A68825 /* Icon-72@2x.png in Resources */,
 				DC33A3661859D1D200A68825 /* Default.png in Resources */,
 				DC33A5FA1859DAF700A68825 /* benchmark_object-hd.png in Resources */,
 				DC8808C01859FE27009664C5 /* background-hd.jpg in Resources */,
+				DC8808CD185DEFF4009664C5 /* benchmark_object_tiny-hd.png in Resources */,
 				DC33A36F1859D1D200A68825 /* Icon.png in Resources */,
 				DC8808C4185A0AF7009664C5 /* background@2x.jpg in Resources */,
 				DC33A37D1859D1D200A68825 /* Icon-iPad-Spotlight-iOS7@2x.png in Resources */,
