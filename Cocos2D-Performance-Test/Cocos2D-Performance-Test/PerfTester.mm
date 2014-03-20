@@ -274,11 +274,11 @@ struct Result
 		{
 			Test mytestSels[] = {
 				
-				{ @"Responds to Selector (succeeds)", @selector( testRespondsToSelectorSucceeds ), },
-				{ @"Responds to Selector (fails)", @selector( testRespondsToSelectorFails ), },
 				{ @"Conforms to Protocol (succeeds)", @selector( testConformsToProctolSucceeds ), },
 				{ @"Conforms to Protocol (fails)", @selector( testConformsToProtocolFails ), },
-				
+				{ @"Responds to Selector (succeeds)", @selector( testRespondsToSelectorSucceeds ), },
+				{ @"Responds to Selector (fails)", @selector( testRespondsToSelectorFails ), },
+
 				{ @"ObjC setter, mutex lock", @selector( testSetterWithMutexLock ), },
 				{ @"ObjC setter, dispatch sync lock", @selector( testSetterWithDispatchSyncLock ), },
 				
@@ -317,6 +317,7 @@ struct Result
 				{ @"IMP-cached message send", @selector( testIMPCachedMessaging ), },
 				{ @"C++ virtual method call", @selector( testCPPVirtualCall ), },
 				{ @"C++ cached virtual method call", @selector( testCPPCachedVirtualCall ), },
+
 				{ nil, NULL }
 			};
 			memcpy(testSels, mytestSels, sizeof(mytestSels));

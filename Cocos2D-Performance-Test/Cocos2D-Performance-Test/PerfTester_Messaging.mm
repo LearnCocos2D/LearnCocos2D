@@ -118,14 +118,14 @@
 
 -(void) testConformsToProctolSucceeds
 {
-    BEGIN( k1MMIterationTestCount )
+    BEGIN( k10MMIterationTestCount )
 	[self conformsToProtocol:@protocol(PointSynchronizedProtocol)];
     END()
 }
 
 -(void) testConformsToProtocolFails
 {
-    BEGIN( k1MMIterationTestCount )
+    BEGIN( k10MMIterationTestCount )
 	[self conformsToProtocol:@protocol(NotImplementedProtocol)];
     END()
 }
