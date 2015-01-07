@@ -1,0 +1,278 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FC76225419919E4B0001BCF4 /* config_types.h in Headers */ = {isa = PBXBuildFile; fileRef = FC76224F19919E4B0001BCF4 /* config_types.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FC76225519919E4B0001BCF4 /* ogg.h in Headers */ = {isa = PBXBuildFile; fileRef = FC76225019919E4B0001BCF4 /* ogg.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FC76225619919E4B0001BCF4 /* os_types.h in Headers */ = {isa = PBXBuildFile; fileRef = FC76225119919E4B0001BCF4 /* os_types.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FC76225719919E4B0001BCF4 /* bitwise.c in Sources */ = {isa = PBXBuildFile; fileRef = FC76225219919E4B0001BCF4 /* bitwise.c */; };
+		FC76225819919E4B0001BCF4 /* framing.c in Sources */ = {isa = PBXBuildFile; fileRef = FC76225319919E4B0001BCF4 /* framing.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FC76224319919E3B0001BCF4 /* libogg.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libogg.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC76224719919E3B0001BCF4 /* ogg-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ogg-Info.plist"; sourceTree = "<group>"; };
+		FC76224919919E3B0001BCF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FC76224F19919E4B0001BCF4 /* config_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = config_types.h; path = ../../../include/ogg/config_types.h; sourceTree = "<group>"; };
+		FC76225019919E4B0001BCF4 /* ogg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ogg.h; path = ../../../include/ogg/ogg.h; sourceTree = "<group>"; };
+		FC76225119919E4B0001BCF4 /* os_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = os_types.h; path = ../../../include/ogg/os_types.h; sourceTree = "<group>"; };
+		FC76225219919E4B0001BCF4 /* bitwise.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = bitwise.c; path = ../../../src/bitwise.c; sourceTree = "<group>"; };
+		FC76225319919E4B0001BCF4 /* framing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = framing.c; path = ../../../src/framing.c; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FC76224019919E3B0001BCF4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FC76223A19919E3B0001BCF4 = {
+			isa = PBXGroup;
+			children = (
+				FC76224519919E3B0001BCF4 /* ogg */,
+				FC76224419919E3B0001BCF4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FC76224419919E3B0001BCF4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FC76224319919E3B0001BCF4 /* libogg.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FC76224519919E3B0001BCF4 /* ogg */ = {
+			isa = PBXGroup;
+			children = (
+				FC76224F19919E4B0001BCF4 /* config_types.h */,
+				FC76225019919E4B0001BCF4 /* ogg.h */,
+				FC76225119919E4B0001BCF4 /* os_types.h */,
+				FC76225219919E4B0001BCF4 /* bitwise.c */,
+				FC76225319919E4B0001BCF4 /* framing.c */,
+				FC76224619919E3B0001BCF4 /* Supporting Files */,
+			);
+			path = ogg;
+			sourceTree = "<group>";
+		};
+		FC76224619919E3B0001BCF4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FC76224719919E3B0001BCF4 /* ogg-Info.plist */,
+				FC76224819919E3B0001BCF4 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		FC76224119919E3B0001BCF4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC76225519919E4B0001BCF4 /* ogg.h in Headers */,
+				FC76225619919E4B0001BCF4 /* os_types.h in Headers */,
+				FC76225419919E4B0001BCF4 /* config_types.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		FC76224219919E3B0001BCF4 /* ogg */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC76224C19919E3B0001BCF4 /* Build configuration list for PBXNativeTarget "ogg" */;
+			buildPhases = (
+				FC76223F19919E3B0001BCF4 /* Sources */,
+				FC76224019919E3B0001BCF4 /* Frameworks */,
+				FC76224119919E3B0001BCF4 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ogg;
+			productName = ogg;
+			productReference = FC76224319919E3B0001BCF4 /* libogg.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FC76223B19919E3B0001BCF4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "SpriteBuilder (forked from https://git.xiph.org/mirrors/ogg.git)";
+			};
+			buildConfigurationList = FC76223E19919E3B0001BCF4 /* Build configuration list for PBXProject "ogg" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FC76223A19919E3B0001BCF4;
+			productRefGroup = FC76224419919E3B0001BCF4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FC76224219919E3B0001BCF4 /* ogg */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FC76223F19919E3B0001BCF4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC76225819919E4B0001BCF4 /* framing.c in Sources */,
+				FC76225719919E4B0001BCF4 /* bitwise.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FC76224819919E3B0001BCF4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FC76224919919E3B0001BCF4 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FC76224A19919E3B0001BCF4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = apportablesdk1.0;
+			};
+			name = Debug;
+		};
+		FC76224B19919E3B0001BCF4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = apportablesdk1.0;
+			};
+			name = Release;
+		};
+		FC76224D19919E3B0001BCF4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				INFOPLIST_FILE = "ogg/ogg-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = sbpbeta;
+			};
+			name = Debug;
+		};
+		FC76224E19919E3B0001BCF4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				INFOPLIST_FILE = "ogg/ogg-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = sbpbeta;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FC76223E19919E3B0001BCF4 /* Build configuration list for PBXProject "ogg" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC76224A19919E3B0001BCF4 /* Debug */,
+				FC76224B19919E3B0001BCF4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FC76224C19919E3B0001BCF4 /* Build configuration list for PBXNativeTarget "ogg" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC76224D19919E3B0001BCF4 /* Debug */,
+				FC76224E19919E3B0001BCF4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FC76223B19919E3B0001BCF4 /* Project object */;
+}
