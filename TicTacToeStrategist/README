@@ -1,0 +1,9 @@
+TicTacToe AI implemented with GKMinmaxStrategist
+
+This project requires Xcode 7 and OS X 10.11 and uses SpriteKit and GameplayKit.
+
+The code should be easy to adapt to iOS but you’ll need iOS 9 of course. The only OS X specific things are mouse & keyboard events.
+
+
+URL for the article discussing this project:
+http://tilemapkit.com/2015/07/gkminmaxstrategist-build-tictactoe-ai

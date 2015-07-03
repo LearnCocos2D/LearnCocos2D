@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>185</integer>
+	<integer>191</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -210,6 +210,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -444,8 +446,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>76.209304809570312</real>
-							<real>147.73300170898438</real>
+							<real>203.57142639160156</real>
+							<real>133.40739440917969</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -784,6 +786,136 @@
 							<key>type</key>
 							<integer>3</integer>
 						</dict>
+						<key>specularColor</key>
+						<dict>
+							<key>keyframes</key>
+							<array>
+								<dict>
+									<key>easing</key>
+									<dict>
+										<key>type</key>
+										<integer>1</integer>
+									</dict>
+									<key>name</key>
+									<string>specularColor</string>
+									<key>time</key>
+									<real>0.0</real>
+									<key>type</key>
+									<integer>6</integer>
+									<key>value</key>
+									<array>
+										<real>1</real>
+										<real>0.0</real>
+										<real>0.0</real>
+										<real>1</real>
+									</array>
+								</dict>
+								<dict>
+									<key>easing</key>
+									<dict>
+										<key>type</key>
+										<integer>1</integer>
+									</dict>
+									<key>name</key>
+									<string>specularColor</string>
+									<key>time</key>
+									<real>0.76666665077209473</real>
+									<key>type</key>
+									<integer>6</integer>
+									<key>value</key>
+									<array>
+										<real>1</real>
+										<real>0.0</real>
+										<real>0.089821860194206238</real>
+										<real>1</real>
+									</array>
+								</dict>
+								<dict>
+									<key>easing</key>
+									<dict>
+										<key>type</key>
+										<integer>1</integer>
+									</dict>
+									<key>name</key>
+									<string>specularColor</string>
+									<key>time</key>
+									<real>2.8333332538604736</real>
+									<key>type</key>
+									<integer>6</integer>
+									<key>value</key>
+									<array>
+										<real>1</real>
+										<real>0.89625090360641479</real>
+										<real>0.0</real>
+										<real>1</real>
+									</array>
+								</dict>
+								<dict>
+									<key>easing</key>
+									<dict>
+										<key>type</key>
+										<integer>1</integer>
+									</dict>
+									<key>name</key>
+									<string>specularColor</string>
+									<key>time</key>
+									<real>5.9333333969116211</real>
+									<key>type</key>
+									<integer>6</integer>
+									<key>value</key>
+									<array>
+										<real>1</real>
+										<real>0.0</real>
+										<real>0.81356793642044067</real>
+										<real>1</real>
+									</array>
+								</dict>
+								<dict>
+									<key>easing</key>
+									<dict>
+										<key>type</key>
+										<integer>1</integer>
+									</dict>
+									<key>name</key>
+									<string>specularColor</string>
+									<key>time</key>
+									<real>8.8000001907348633</real>
+									<key>type</key>
+									<integer>6</integer>
+									<key>value</key>
+									<array>
+										<real>0.18991723656654358</real>
+										<real>0.0</real>
+										<real>1</real>
+										<real>1</real>
+									</array>
+								</dict>
+								<dict>
+									<key>easing</key>
+									<dict>
+										<key>type</key>
+										<integer>1</integer>
+									</dict>
+									<key>name</key>
+									<string>specularColor</string>
+									<key>time</key>
+									<real>10</real>
+									<key>type</key>
+									<integer>6</integer>
+									<key>value</key>
+									<array>
+										<real>1</real>
+										<real>0.0</real>
+										<real>0.098743036389350891</real>
+										<real>1</real>
+									</array>
+								</dict>
+							</array>
+							<key>name</key>
+							<string>specularColor</string>
+							<key>type</key>
+							<integer>6</integer>
+						</dict>
 					</dict>
 				</dict>
 				<key>baseClass</key>
@@ -820,8 +952,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>201.79203796386719</real>
-							<real>49.392044067382812</real>
+							<real>88.461509704589844</real>
+							<real>154.72526550292969</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -891,6 +1023,13 @@
 						<real>0.30000001192092896</real>
 					</dict>
 					<dict>
+						<key>baseValue</key>
+						<array>
+							<real>1</real>
+							<real>0.0</real>
+							<real>1</real>
+							<real>1</real>
+						</array>
 						<key>name</key>
 						<string>specularColor</string>
 						<key>type</key>
@@ -898,8 +1037,8 @@
 						<key>value</key>
 						<array>
 							<real>1</real>
-							<real>0.0</real>
-							<real>1</real>
+							<real>0.067459821701049805</real>
+							<real>0.75233155488967896</real>
 							<real>1</real>
 						</array>
 					</dict>
@@ -928,6 +1067,8 @@
 						<real>200</real>
 					</dict>
 				</array>
+				<key>seqExpanded</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -1048,7 +1189,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.7969202995300293</real>
+							<real>0.78762573003768921</real>
 							<real>0.0</real>
 							<integer>0</integer>
 							<integer>2</integer>
@@ -1565,8 +1706,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -1937,11 +2076,11 @@ Pixellate Effect</string>
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>3.5333333015441895</real>
+			<real>5.6999998092651367</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>
-			<real>63.221908569335938</real>
+			<real>32</real>
 			<key>sequenceId</key>
 			<integer>0</integer>
 			<key>soundChannel</key>
