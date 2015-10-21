@@ -9,4 +9,4 @@ URL for the article discussing this project:
 Previous article that explains how to install these ECS in a project:
 	http://tilemapkit.com/2015/10/install-entity-component-systems-anax-entityx-artemis/
 
-The articles include the links to the respective ECS' github repositories. Tested with Xcode 7 and XC unit tests for benchmarking.
+The articles include the links to the respective ECS' github repositories. Tested with Xcode 7, OS X and XC unit tests for benchmarking.

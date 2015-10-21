@@ -684,6 +684,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				GCC_FAST_MATH = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/anax/include",
 					"$(SRCROOT)/entityx",
@@ -708,6 +709,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				GCC_FAST_MATH = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/anax/include",
 					"$(SRCROOT)/entityx",
@@ -733,6 +735,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_FAST_MATH = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/anax/include",
 					"$(SRCROOT)/entityx",
@@ -751,6 +754,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
+				GCC_FAST_MATH = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/anax/include",
 					"$(SRCROOT)/entityx",
@@ -792,6 +796,7 @@
 				DCC7A2661BD6862200FDD4C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

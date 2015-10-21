@@ -36,7 +36,8 @@
 	[self stopMeasuring]; \
 }]; \
 
-const NSInteger numIterations = 500;
+const NSInteger numEntities = 400;
+const NSInteger numIterations = 1000;
 const double fakeDeltaTime = 0.01666;
 
 
@@ -178,7 +179,7 @@ public:
 }
 
 #pragma mark Systems
-struct MovementSystem_EntityX : public entityx::System<MovementSystem_EntityX> {
+struct MovementSystem_EntityX : entityx::System<MovementSystem_EntityX> {
 	void update(entityx::EntityManager &es, entityx::EventManager &events, entityx::TimeDelta dt) override {
 		es.each<Position_EntityX, Direction_EntityX>([dt](entityx::Entity entity, Position_EntityX &position, Direction_EntityX &direction) {
 			position.x += direction.x * dt;
@@ -186,7 +187,7 @@ struct MovementSystem_EntityX : public entityx::System<MovementSystem_EntityX> {
 		});
 	};
 };
-struct ComflabSystem_EntityX : public entityx::System<ComflabSystem_EntityX> {
+struct ComflabSystem_EntityX : entityx::System<ComflabSystem_EntityX> {
 	void update(entityx::EntityManager &es, entityx::EventManager &events, entityx::TimeDelta dt) override {
 		es.each<Comflabulation_EntityX>([dt](entityx::Entity entity, Comflabulation_EntityX &comflab) {
 			comflab.thingy *= 1.000001f;
@@ -198,7 +199,6 @@ struct ComflabSystem_EntityX : public entityx::System<ComflabSystem_EntityX> {
 };
 
 struct MovementSystem_Anax : anax::System<anax::Requires<Position_Anax, Direction_Anax>> {
-public:
 	void update(double dt) const {
 		auto entities = getEntities();
 		for (auto entity : entities) {
@@ -210,7 +210,6 @@ public:
 	}
 };
 struct ComflabSystem_Anax : anax::System<anax::Requires<Comflabulation_Anax>> {
-public:
 	void update(double dt) const {
 		auto entities = getEntities();
 		for (auto entity : entities) {
@@ -270,7 +269,7 @@ private:
 	world->systems.add<ComflabSystem_EntityX>();
 	world->systems.configure();
 
-	for (int i = 0; i < numIterations; i++) {
+	for (int i = 0; i < numEntities; i++) {
 		entityx::Entity entity = world->entities.create();
 		entity.assign<Position_EntityX>();
 		entity.assign<Direction_EntityX>();
@@ -293,7 +292,7 @@ private:
 	ComflabSystem_Anax comflabSystem;
 	world->addSystem(comflabSystem);
 	
-	for (int i = 0; i < numIterations; i++) {
+	for (int i = 0; i < numEntities; i++) {
 		anax::Entity entity = world->createEntity();
 		entity.addComponent<Position_Anax>();
 		entity.addComponent<Direction_Anax>();
@@ -303,9 +302,8 @@ private:
 		entity.activate(); // must activate entity after changing components to update systems
 	}
 
-	world->refresh(); // must refresh world after changing entities or their components to update systems
-
 	MEASURE(numIterations, {
+		world->refresh();
 		movementSystem.update(fakeDeltaTime);
 		comflabSystem.update(fakeDeltaTime);
 	});
@@ -315,13 +313,14 @@ private:
 
 -(void) testComponentSystems_Artemis {
 	artemis::World* world = new artemis::World();
+	artemis::EntityManager* entityManager = world->getEntityManager();
+
 	artemis::SystemManager* systemManager = world->getSystemManager();
-	auto movementSystem = (MovementSystem_Artemis*)systemManager->setSystem(new MovementSystem_Artemis());
-	auto comflabSystem = (ComflabSystem_Artemis*)systemManager->setSystem(new ComflabSystem_Artemis());
+	auto movementSystem = systemManager->setSystem(new MovementSystem_Artemis());
+	auto comflabSystem = systemManager->setSystem(new ComflabSystem_Artemis());
 	systemManager->initializeAll(); // calls initialize on all systems
 
-	artemis::EntityManager* entityManager = world->getEntityManager();
-	for (int i = 0; i < numIterations; i++) {
+	for (int i = 0; i < numEntities; i++) {
 		artemis::Entity& entity = entityManager->create();
 		entity.addComponent(new Position_Artemis());
 		entity.addComponent(new Direction_Artemis());
