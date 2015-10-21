@@ -1,0 +1,799 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DC3352BE1BD645DD00C55EEB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3352BD1BD645DD00C55EEB /* AppDelegate.m */; };
+		DC3352C11BD645DD00C55EEB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3352C01BD645DD00C55EEB /* main.m */; };
+		DC3352C41BD645DD00C55EEB /* GameScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = DC3352C31BD645DD00C55EEB /* GameScene.mm */; };
+		DC3352C61BD645DD00C55EEB /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = DC3352C51BD645DD00C55EEB /* GameScene.sks */; };
+		DC3352C81BD645DD00C55EEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC3352C71BD645DD00C55EEB /* Assets.xcassets */; };
+		DC3352CB1BD645DD00C55EEB /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC3352C91BD645DD00C55EEB /* MainMenu.xib */; };
+		DC3352EF1BD646A200C55EEB /* BaseSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC3352E81BD646A200C55EEB /* BaseSystem.cpp */; };
+		DC3352F01BD646A200C55EEB /* EntityComponentStorage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC3352E91BD646A200C55EEB /* EntityComponentStorage.cpp */; };
+		DC3352F11BD646A200C55EEB /* EntityIdPool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC3352EA1BD646A200C55EEB /* EntityIdPool.cpp */; };
+		DC3352F21BD646A200C55EEB /* Filter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC3352EB1BD646A200C55EEB /* Filter.cpp */; };
+		DC3352F31BD646A200C55EEB /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC3352EC1BD646A200C55EEB /* Entity.cpp */; };
+		DC3352F41BD646A200C55EEB /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC3352ED1BD646A200C55EEB /* World.cpp */; };
+		DC58B0731BD64A6B007575E3 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC58B0721BD64A6B007575E3 /* SpriteKit.framework */; };
+		DC58B0951BD64B1A007575E3 /* Entity.cc in Sources */ = {isa = PBXBuildFile; fileRef = DC58B07E1BD64B1A007575E3 /* Entity.cc */; };
+		DC58B0971BD64B1A007575E3 /* Event.cc in Sources */ = {isa = PBXBuildFile; fileRef = DC58B0821BD64B1A007575E3 /* Event.cc */; };
+		DC58B0991BD64B1A007575E3 /* Pool.cc in Sources */ = {isa = PBXBuildFile; fileRef = DC58B0871BD64B1A007575E3 /* Pool.cc */; };
+		DC58B09B1BD64B1A007575E3 /* Timer.cc in Sources */ = {isa = PBXBuildFile; fileRef = DC58B08A1BD64B1A007575E3 /* Timer.cc */; };
+		DC58B09C1BD64B1A007575E3 /* System.cc in Sources */ = {isa = PBXBuildFile; fileRef = DC58B08D1BD64B1A007575E3 /* System.cc */; };
+		DC58B0C51BD64D5E007575E3 /* Component.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC58B0B61BD64D5E007575E3 /* Component.cpp */; };
+		DC58B0C61BD64D5E007575E3 /* ComponentType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC58B0B71BD64D5E007575E3 /* ComponentType.cpp */; };
+		DC58B0C71BD64D5E007575E3 /* ComponentTypeManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC58B0B81BD64D5E007575E3 /* ComponentTypeManager.cpp */; };
+		DC58B0C81BD64D5E007575E3 /* DelayedEntityProcessingSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC58B0B91BD64D5E007575E3 /* DelayedEntityProcessingSystem.cpp */; };
+		DC58B0C91BD64D5E007575E3 /* DelayedEntitySystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC58B0BA1BD64D5E007575E3 /* DelayedEntitySystem.cpp */; };
+		DC58B0CB1BD64D5E007575E3 /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC58B0BC1BD64D5E007575E3 /* Entity.cpp */; };
+		DC58B0CC1BD64D5E007575E3 /* EntityManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC58B0BD1BD64D5E007575E3 /* EntityManager.cpp */; };
+		DC58B0CD1BD64D5E007575E3 /* EntityProcessingSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC58B0BE1BD64D5E007575E3 /* EntityProcessingSystem.cpp */; };
+		DC58B0CE1BD64D5E007575E3 /* EntitySystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC58B0BF1BD64D5E007575E3 /* EntitySystem.cpp */; };
+		DC58B0CF1BD64D5E007575E3 /* GroupManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC58B0C01BD64D5E007575E3 /* GroupManager.cpp */; };
+		DC58B0D01BD64D5E007575E3 /* SystemBitManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC58B0C11BD64D5E007575E3 /* SystemBitManager.cpp */; };
+		DC58B0D11BD64D5E007575E3 /* SystemManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC58B0C21BD64D5E007575E3 /* SystemManager.cpp */; };
+		DC58B0D21BD64D5E007575E3 /* TagManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC58B0C31BD64D5E007575E3 /* TagManager.cpp */; };
+		DC58B0D31BD64D5E007575E3 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC58B0C41BD64D5E007575E3 /* World.cpp */; };
+		DCC7A2601BD6862200FDD4C4 /* EntityComponentSystemsTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = DCC7A25F1BD6862200FDD4C4 /* EntityComponentSystemsTests.mm */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DCC7A2621BD6862200FDD4C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC3352B11BD645DD00C55EEB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC3352B81BD645DD00C55EEB;
+			remoteInfo = EntityComponentSystemsTest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DC3352B91BD645DD00C55EEB /* EntityComponentSystemsTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EntityComponentSystemsTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC3352BC1BD645DD00C55EEB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DC3352BD1BD645DD00C55EEB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DC3352C01BD645DD00C55EEB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DC3352C21BD645DD00C55EEB /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		DC3352C31BD645DD00C55EEB /* GameScene.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = GameScene.mm; sourceTree = "<group>"; };
+		DC3352C51BD645DD00C55EEB /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		DC3352C71BD645DD00C55EEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DC3352CA1BD645DD00C55EEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		DC3352CC1BD645DD00C55EEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC3352D41BD646A200C55EEB /* anax.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = anax.hpp; sourceTree = "<group>"; };
+		DC3352D51BD646A200C55EEB /* Component.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Component.hpp; sourceTree = "<group>"; };
+		DC3352D81BD646A200C55EEB /* AnaxAssert.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AnaxAssert.hpp; sourceTree = "<group>"; };
+		DC3352D91BD646A200C55EEB /* BaseSystem.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BaseSystem.hpp; sourceTree = "<group>"; };
+		DC3352DA1BD646A200C55EEB /* ClassTypeId.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ClassTypeId.hpp; sourceTree = "<group>"; };
+		DC3352DB1BD646A200C55EEB /* ComponentTypeList.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ComponentTypeList.hpp; sourceTree = "<group>"; };
+		DC3352DC1BD646A200C55EEB /* EntityComponentStorage.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EntityComponentStorage.hpp; sourceTree = "<group>"; };
+		DC3352DD1BD646A200C55EEB /* EntityIdPool.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EntityIdPool.hpp; sourceTree = "<group>"; };
+		DC3352DE1BD646A200C55EEB /* Filter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Filter.hpp; sourceTree = "<group>"; };
+		DC3352DF1BD646A200C55EEB /* Entity.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Entity.hpp; sourceTree = "<group>"; };
+		DC3352E01BD646A200C55EEB /* FilterOptions.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FilterOptions.hpp; sourceTree = "<group>"; };
+		DC3352E11BD646A200C55EEB /* System.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = System.hpp; sourceTree = "<group>"; };
+		DC3352E31BD646A200C55EEB /* ContainerUtils.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ContainerUtils.hpp; sourceTree = "<group>"; };
+		DC3352E41BD646A200C55EEB /* World.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = World.hpp; sourceTree = "<group>"; };
+		DC3352E81BD646A200C55EEB /* BaseSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseSystem.cpp; sourceTree = "<group>"; };
+		DC3352E91BD646A200C55EEB /* EntityComponentStorage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EntityComponentStorage.cpp; sourceTree = "<group>"; };
+		DC3352EA1BD646A200C55EEB /* EntityIdPool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EntityIdPool.cpp; sourceTree = "<group>"; };
+		DC3352EB1BD646A200C55EEB /* Filter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Filter.cpp; sourceTree = "<group>"; };
+		DC3352EC1BD646A200C55EEB /* Entity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
+		DC3352ED1BD646A200C55EEB /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = World.cpp; sourceTree = "<group>"; };
+		DC58B0711BD6478B007575E3 /* Config.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Config.hpp; sourceTree = "<group>"; };
+		DC58B0721BD64A6B007575E3 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		DC58B0771BD64B1A007575E3 /* catch.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = catch.hpp; sourceTree = "<group>"; };
+		DC58B0781BD64B1A007575E3 /* simplesignal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = simplesignal.h; sourceTree = "<group>"; };
+		DC58B0791BD64B1A007575E3 /* Benchmarks_test.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Benchmarks_test.cc; sourceTree = "<group>"; };
+		DC58B07A1BD64B1A007575E3 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		DC58B07C1BD64B1A007575E3 /* Dependencies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dependencies.h; sourceTree = "<group>"; };
+		DC58B07D1BD64B1A007575E3 /* Dependencies_test.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dependencies_test.cc; sourceTree = "<group>"; };
+		DC58B07E1BD64B1A007575E3 /* Entity.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cc; sourceTree = "<group>"; };
+		DC58B07F1BD64B1A007575E3 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
+		DC58B0801BD64B1A007575E3 /* Entity_test.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Entity_test.cc; sourceTree = "<group>"; };
+		DC58B0811BD64B1A007575E3 /* entityx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = entityx.h; sourceTree = "<group>"; };
+		DC58B0821BD64B1A007575E3 /* Event.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Event.cc; sourceTree = "<group>"; };
+		DC58B0831BD64B1A007575E3 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		DC58B0841BD64B1A007575E3 /* Event_test.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Event_test.cc; sourceTree = "<group>"; };
+		DC58B0861BD64B1A007575E3 /* NonCopyable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NonCopyable.h; sourceTree = "<group>"; };
+		DC58B0871BD64B1A007575E3 /* Pool.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Pool.cc; sourceTree = "<group>"; };
+		DC58B0881BD64B1A007575E3 /* Pool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pool.h; sourceTree = "<group>"; };
+		DC58B0891BD64B1A007575E3 /* Pool_test.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Pool_test.cc; sourceTree = "<group>"; };
+		DC58B08A1BD64B1A007575E3 /* Timer.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Timer.cc; sourceTree = "<group>"; };
+		DC58B08B1BD64B1A007575E3 /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
+		DC58B08C1BD64B1A007575E3 /* quick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = quick.h; sourceTree = "<group>"; };
+		DC58B08D1BD64B1A007575E3 /* System.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = System.cc; sourceTree = "<group>"; };
+		DC58B08E1BD64B1A007575E3 /* System.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.h; sourceTree = "<group>"; };
+		DC58B08F1BD64B1A007575E3 /* System_test.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = System_test.cc; sourceTree = "<group>"; };
+		DC58B0911BD64B1A007575E3 /* TagsComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagsComponent.h; sourceTree = "<group>"; };
+		DC58B0921BD64B1A007575E3 /* TagsComponent_test.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TagsComponent_test.cc; sourceTree = "<group>"; };
+		DC58B0A21BD64D5E007575E3 /* Artemis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Artemis.h; sourceTree = "<group>"; };
+		DC58B0A31BD64D5E007575E3 /* BitSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitSize.h; sourceTree = "<group>"; };
+		DC58B0A41BD64D5E007575E3 /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
+		DC58B0A51BD64D5E007575E3 /* ComponentMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComponentMapper.h; sourceTree = "<group>"; };
+		DC58B0A61BD64D5E007575E3 /* ComponentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComponentType.h; sourceTree = "<group>"; };
+		DC58B0A71BD64D5E007575E3 /* ComponentTypeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComponentTypeManager.h; sourceTree = "<group>"; };
+		DC58B0A81BD64D5E007575E3 /* DelayedEntityProcessingSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DelayedEntityProcessingSystem.h; sourceTree = "<group>"; };
+		DC58B0A91BD64D5E007575E3 /* DelayedEntitySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DelayedEntitySystem.h; sourceTree = "<group>"; };
+		DC58B0AA1BD64D5E007575E3 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
+		DC58B0AB1BD64D5E007575E3 /* EntityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityManager.h; sourceTree = "<group>"; };
+		DC58B0AC1BD64D5E007575E3 /* EntityProcessingSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityProcessingSystem.h; sourceTree = "<group>"; };
+		DC58B0AD1BD64D5E007575E3 /* EntitySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntitySystem.h; sourceTree = "<group>"; };
+		DC58B0AE1BD64D5E007575E3 /* GroupManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupManager.h; sourceTree = "<group>"; };
+		DC58B0AF1BD64D5E007575E3 /* ImmutableBag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImmutableBag.h; sourceTree = "<group>"; };
+		DC58B0B01BD64D5E007575E3 /* SystemBitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemBitManager.h; sourceTree = "<group>"; };
+		DC58B0B11BD64D5E007575E3 /* SystemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemManager.h; sourceTree = "<group>"; };
+		DC58B0B21BD64D5E007575E3 /* TagManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagManager.h; sourceTree = "<group>"; };
+		DC58B0B31BD64D5E007575E3 /* TypeInfoComparator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeInfoComparator.h; sourceTree = "<group>"; };
+		DC58B0B41BD64D5E007575E3 /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
+		DC58B0B61BD64D5E007575E3 /* Component.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Component.cpp; sourceTree = "<group>"; };
+		DC58B0B71BD64D5E007575E3 /* ComponentType.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ComponentType.cpp; sourceTree = "<group>"; };
+		DC58B0B81BD64D5E007575E3 /* ComponentTypeManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ComponentTypeManager.cpp; sourceTree = "<group>"; };
+		DC58B0B91BD64D5E007575E3 /* DelayedEntityProcessingSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DelayedEntityProcessingSystem.cpp; sourceTree = "<group>"; };
+		DC58B0BA1BD64D5E007575E3 /* DelayedEntitySystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DelayedEntitySystem.cpp; sourceTree = "<group>"; };
+		DC58B0BC1BD64D5E007575E3 /* Entity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
+		DC58B0BD1BD64D5E007575E3 /* EntityManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EntityManager.cpp; sourceTree = "<group>"; };
+		DC58B0BE1BD64D5E007575E3 /* EntityProcessingSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EntityProcessingSystem.cpp; sourceTree = "<group>"; };
+		DC58B0BF1BD64D5E007575E3 /* EntitySystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EntitySystem.cpp; sourceTree = "<group>"; };
+		DC58B0C01BD64D5E007575E3 /* GroupManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GroupManager.cpp; sourceTree = "<group>"; };
+		DC58B0C11BD64D5E007575E3 /* SystemBitManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SystemBitManager.cpp; sourceTree = "<group>"; };
+		DC58B0C21BD64D5E007575E3 /* SystemManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SystemManager.cpp; sourceTree = "<group>"; };
+		DC58B0C31BD64D5E007575E3 /* TagManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TagManager.cpp; sourceTree = "<group>"; };
+		DC58B0C41BD64D5E007575E3 /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = World.cpp; sourceTree = "<group>"; };
+		DCC7A25D1BD6862200FDD4C4 /* EntityComponentSystemsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EntityComponentSystemsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCC7A25F1BD6862200FDD4C4 /* EntityComponentSystemsTests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = EntityComponentSystemsTests.mm; sourceTree = "<group>"; };
+		DCC7A2611BD6862200FDD4C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DC3352B61BD645DD00C55EEB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC58B0731BD64A6B007575E3 /* SpriteKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCC7A25A1BD6862200FDD4C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DC3352B01BD645DD00C55EEB = {
+			isa = PBXGroup;
+			children = (
+				DC58B09F1BD64D50007575E3 /* Artemis-Cpp */,
+				DC58B0751BD64B1A007575E3 /* entityx */,
+				DC3352F51BD646A500C55EEB /* anax */,
+				DC3352BB1BD645DD00C55EEB /* EntityComponentSystemsTest */,
+				DCC7A25E1BD6862200FDD4C4 /* EntityComponentSystemsTests */,
+				DC3352BA1BD645DD00C55EEB /* Products */,
+				DC58B0721BD64A6B007575E3 /* SpriteKit.framework */,
+			);
+			sourceTree = "<group>";
+		};
+		DC3352BA1BD645DD00C55EEB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DC3352B91BD645DD00C55EEB /* EntityComponentSystemsTest.app */,
+				DCC7A25D1BD6862200FDD4C4 /* EntityComponentSystemsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DC3352BB1BD645DD00C55EEB /* EntityComponentSystemsTest */ = {
+			isa = PBXGroup;
+			children = (
+				DC3352BC1BD645DD00C55EEB /* AppDelegate.h */,
+				DC3352BD1BD645DD00C55EEB /* AppDelegate.m */,
+				DC3352C21BD645DD00C55EEB /* GameScene.h */,
+				DC3352C31BD645DD00C55EEB /* GameScene.mm */,
+				DC3352C51BD645DD00C55EEB /* GameScene.sks */,
+				DC3352C71BD645DD00C55EEB /* Assets.xcassets */,
+				DC3352C91BD645DD00C55EEB /* MainMenu.xib */,
+				DC3352CC1BD645DD00C55EEB /* Info.plist */,
+				DC3352BF1BD645DD00C55EEB /* Supporting Files */,
+			);
+			path = EntityComponentSystemsTest;
+			sourceTree = "<group>";
+		};
+		DC3352BF1BD645DD00C55EEB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DC3352C01BD645DD00C55EEB /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DC3352D21BD646A200C55EEB /* include */ = {
+			isa = PBXGroup;
+			children = (
+				DC3352D31BD646A200C55EEB /* anax */,
+			);
+			name = include;
+			path = anax/include;
+			sourceTree = "<group>";
+		};
+		DC3352D31BD646A200C55EEB /* anax */ = {
+			isa = PBXGroup;
+			children = (
+				DC58B0711BD6478B007575E3 /* Config.hpp */,
+				DC3352D41BD646A200C55EEB /* anax.hpp */,
+				DC3352D51BD646A200C55EEB /* Component.hpp */,
+				DC3352D71BD646A200C55EEB /* detail */,
+				DC3352DF1BD646A200C55EEB /* Entity.hpp */,
+				DC3352E01BD646A200C55EEB /* FilterOptions.hpp */,
+				DC3352E11BD646A200C55EEB /* System.hpp */,
+				DC3352E21BD646A200C55EEB /* util */,
+				DC3352E41BD646A200C55EEB /* World.hpp */,
+			);
+			path = anax;
+			sourceTree = "<group>";
+		};
+		DC3352D71BD646A200C55EEB /* detail */ = {
+			isa = PBXGroup;
+			children = (
+				DC3352D81BD646A200C55EEB /* AnaxAssert.hpp */,
+				DC3352D91BD646A200C55EEB /* BaseSystem.hpp */,
+				DC3352DA1BD646A200C55EEB /* ClassTypeId.hpp */,
+				DC3352DB1BD646A200C55EEB /* ComponentTypeList.hpp */,
+				DC3352DC1BD646A200C55EEB /* EntityComponentStorage.hpp */,
+				DC3352DD1BD646A200C55EEB /* EntityIdPool.hpp */,
+				DC3352DE1BD646A200C55EEB /* Filter.hpp */,
+			);
+			path = detail;
+			sourceTree = "<group>";
+		};
+		DC3352E21BD646A200C55EEB /* util */ = {
+			isa = PBXGroup;
+			children = (
+				DC3352E31BD646A200C55EEB /* ContainerUtils.hpp */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		DC3352E51BD646A200C55EEB /* src */ = {
+			isa = PBXGroup;
+			children = (
+				DC3352E61BD646A200C55EEB /* anax */,
+			);
+			name = src;
+			path = anax/src;
+			sourceTree = "<group>";
+		};
+		DC3352E61BD646A200C55EEB /* anax */ = {
+			isa = PBXGroup;
+			children = (
+				DC3352E71BD646A200C55EEB /* detail */,
+				DC3352EC1BD646A200C55EEB /* Entity.cpp */,
+				DC3352ED1BD646A200C55EEB /* World.cpp */,
+			);
+			path = anax;
+			sourceTree = "<group>";
+		};
+		DC3352E71BD646A200C55EEB /* detail */ = {
+			isa = PBXGroup;
+			children = (
+				DC3352E81BD646A200C55EEB /* BaseSystem.cpp */,
+				DC3352E91BD646A200C55EEB /* EntityComponentStorage.cpp */,
+				DC3352EA1BD646A200C55EEB /* EntityIdPool.cpp */,
+				DC3352EB1BD646A200C55EEB /* Filter.cpp */,
+			);
+			path = detail;
+			sourceTree = "<group>";
+		};
+		DC3352F51BD646A500C55EEB /* anax */ = {
+			isa = PBXGroup;
+			children = (
+				DC3352D21BD646A200C55EEB /* include */,
+				DC3352E51BD646A200C55EEB /* src */,
+			);
+			name = anax;
+			sourceTree = "<group>";
+		};
+		DC58B0751BD64B1A007575E3 /* entityx */ = {
+			isa = PBXGroup;
+			children = (
+				DC58B0761BD64B1A007575E3 /* 3rdparty */,
+				DC58B0791BD64B1A007575E3 /* Benchmarks_test.cc */,
+				DC58B07A1BD64B1A007575E3 /* config.h */,
+				DC58B07B1BD64B1A007575E3 /* deps */,
+				DC58B07E1BD64B1A007575E3 /* Entity.cc */,
+				DC58B07F1BD64B1A007575E3 /* Entity.h */,
+				DC58B0801BD64B1A007575E3 /* Entity_test.cc */,
+				DC58B0811BD64B1A007575E3 /* entityx.h */,
+				DC58B0821BD64B1A007575E3 /* Event.cc */,
+				DC58B0831BD64B1A007575E3 /* Event.h */,
+				DC58B0841BD64B1A007575E3 /* Event_test.cc */,
+				DC58B0851BD64B1A007575E3 /* help */,
+				DC58B08C1BD64B1A007575E3 /* quick.h */,
+				DC58B08D1BD64B1A007575E3 /* System.cc */,
+				DC58B08E1BD64B1A007575E3 /* System.h */,
+				DC58B08F1BD64B1A007575E3 /* System_test.cc */,
+				DC58B0901BD64B1A007575E3 /* tags */,
+			);
+			name = entityx;
+			path = entityx/entityx;
+			sourceTree = "<group>";
+		};
+		DC58B0761BD64B1A007575E3 /* 3rdparty */ = {
+			isa = PBXGroup;
+			children = (
+				DC58B0771BD64B1A007575E3 /* catch.hpp */,
+				DC58B0781BD64B1A007575E3 /* simplesignal.h */,
+			);
+			path = 3rdparty;
+			sourceTree = "<group>";
+		};
+		DC58B07B1BD64B1A007575E3 /* deps */ = {
+			isa = PBXGroup;
+			children = (
+				DC58B07C1BD64B1A007575E3 /* Dependencies.h */,
+				DC58B07D1BD64B1A007575E3 /* Dependencies_test.cc */,
+			);
+			path = deps;
+			sourceTree = "<group>";
+		};
+		DC58B0851BD64B1A007575E3 /* help */ = {
+			isa = PBXGroup;
+			children = (
+				DC58B0861BD64B1A007575E3 /* NonCopyable.h */,
+				DC58B0871BD64B1A007575E3 /* Pool.cc */,
+				DC58B0881BD64B1A007575E3 /* Pool.h */,
+				DC58B0891BD64B1A007575E3 /* Pool_test.cc */,
+				DC58B08A1BD64B1A007575E3 /* Timer.cc */,
+				DC58B08B1BD64B1A007575E3 /* Timer.h */,
+			);
+			path = help;
+			sourceTree = "<group>";
+		};
+		DC58B0901BD64B1A007575E3 /* tags */ = {
+			isa = PBXGroup;
+			children = (
+				DC58B0911BD64B1A007575E3 /* TagsComponent.h */,
+				DC58B0921BD64B1A007575E3 /* TagsComponent_test.cc */,
+			);
+			path = tags;
+			sourceTree = "<group>";
+		};
+		DC58B09F1BD64D50007575E3 /* Artemis-Cpp */ = {
+			isa = PBXGroup;
+			children = (
+				DC58B0A01BD64D5E007575E3 /* include */,
+				DC58B0B51BD64D5E007575E3 /* src */,
+			);
+			name = "Artemis-Cpp";
+			sourceTree = "<group>";
+		};
+		DC58B0A01BD64D5E007575E3 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				DC58B0A11BD64D5E007575E3 /* Artemis */,
+			);
+			name = include;
+			path = "Artemis-Cpp/include";
+			sourceTree = "<group>";
+		};
+		DC58B0A11BD64D5E007575E3 /* Artemis */ = {
+			isa = PBXGroup;
+			children = (
+				DC58B0A21BD64D5E007575E3 /* Artemis.h */,
+				DC58B0A31BD64D5E007575E3 /* BitSize.h */,
+				DC58B0A41BD64D5E007575E3 /* Component.h */,
+				DC58B0A51BD64D5E007575E3 /* ComponentMapper.h */,
+				DC58B0A61BD64D5E007575E3 /* ComponentType.h */,
+				DC58B0A71BD64D5E007575E3 /* ComponentTypeManager.h */,
+				DC58B0A81BD64D5E007575E3 /* DelayedEntityProcessingSystem.h */,
+				DC58B0A91BD64D5E007575E3 /* DelayedEntitySystem.h */,
+				DC58B0AA1BD64D5E007575E3 /* Entity.h */,
+				DC58B0AB1BD64D5E007575E3 /* EntityManager.h */,
+				DC58B0AC1BD64D5E007575E3 /* EntityProcessingSystem.h */,
+				DC58B0AD1BD64D5E007575E3 /* EntitySystem.h */,
+				DC58B0AE1BD64D5E007575E3 /* GroupManager.h */,
+				DC58B0AF1BD64D5E007575E3 /* ImmutableBag.h */,
+				DC58B0B01BD64D5E007575E3 /* SystemBitManager.h */,
+				DC58B0B11BD64D5E007575E3 /* SystemManager.h */,
+				DC58B0B21BD64D5E007575E3 /* TagManager.h */,
+				DC58B0B31BD64D5E007575E3 /* TypeInfoComparator.h */,
+				DC58B0B41BD64D5E007575E3 /* World.h */,
+			);
+			path = Artemis;
+			sourceTree = "<group>";
+		};
+		DC58B0B51BD64D5E007575E3 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				DC58B0B61BD64D5E007575E3 /* Component.cpp */,
+				DC58B0B71BD64D5E007575E3 /* ComponentType.cpp */,
+				DC58B0B81BD64D5E007575E3 /* ComponentTypeManager.cpp */,
+				DC58B0B91BD64D5E007575E3 /* DelayedEntityProcessingSystem.cpp */,
+				DC58B0BA1BD64D5E007575E3 /* DelayedEntitySystem.cpp */,
+				DC58B0BC1BD64D5E007575E3 /* Entity.cpp */,
+				DC58B0BD1BD64D5E007575E3 /* EntityManager.cpp */,
+				DC58B0BE1BD64D5E007575E3 /* EntityProcessingSystem.cpp */,
+				DC58B0BF1BD64D5E007575E3 /* EntitySystem.cpp */,
+				DC58B0C01BD64D5E007575E3 /* GroupManager.cpp */,
+				DC58B0C11BD64D5E007575E3 /* SystemBitManager.cpp */,
+				DC58B0C21BD64D5E007575E3 /* SystemManager.cpp */,
+				DC58B0C31BD64D5E007575E3 /* TagManager.cpp */,
+				DC58B0C41BD64D5E007575E3 /* World.cpp */,
+			);
+			name = src;
+			path = "Artemis-Cpp/src";
+			sourceTree = "<group>";
+		};
+		DCC7A25E1BD6862200FDD4C4 /* EntityComponentSystemsTests */ = {
+			isa = PBXGroup;
+			children = (
+				DCC7A25F1BD6862200FDD4C4 /* EntityComponentSystemsTests.mm */,
+				DCC7A2611BD6862200FDD4C4 /* Info.plist */,
+			);
+			path = EntityComponentSystemsTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DC3352B81BD645DD00C55EEB /* EntityComponentSystemsTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC3352CF1BD645DD00C55EEB /* Build configuration list for PBXNativeTarget "EntityComponentSystemsTest" */;
+			buildPhases = (
+				DC3352B51BD645DD00C55EEB /* Sources */,
+				DC3352B61BD645DD00C55EEB /* Frameworks */,
+				DC3352B71BD645DD00C55EEB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EntityComponentSystemsTest;
+			productName = EntityComponentSystemsTest;
+			productReference = DC3352B91BD645DD00C55EEB /* EntityComponentSystemsTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DCC7A25C1BD6862200FDD4C4 /* EntityComponentSystemsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCC7A2641BD6862200FDD4C4 /* Build configuration list for PBXNativeTarget "EntityComponentSystemsTests" */;
+			buildPhases = (
+				DCC7A2591BD6862200FDD4C4 /* Sources */,
+				DCC7A25A1BD6862200FDD4C4 /* Frameworks */,
+				DCC7A25B1BD6862200FDD4C4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DCC7A2631BD6862200FDD4C4 /* PBXTargetDependency */,
+			);
+			name = EntityComponentSystemsTests;
+			productName = EntityComponentSystemsTests;
+			productReference = DCC7A25D1BD6862200FDD4C4 /* EntityComponentSystemsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DC3352B11BD645DD00C55EEB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Steffen Itterheim";
+				TargetAttributes = {
+					DC3352B81BD645DD00C55EEB = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					DCC7A25C1BD6862200FDD4C4 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = DC3352B81BD645DD00C55EEB;
+					};
+				};
+			};
+			buildConfigurationList = DC3352B41BD645DD00C55EEB /* Build configuration list for PBXProject "EntityComponentSystemsTest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DC3352B01BD645DD00C55EEB;
+			productRefGroup = DC3352BA1BD645DD00C55EEB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DC3352B81BD645DD00C55EEB /* EntityComponentSystemsTest */,
+				DCC7A25C1BD6862200FDD4C4 /* EntityComponentSystemsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DC3352B71BD645DD00C55EEB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC3352C81BD645DD00C55EEB /* Assets.xcassets in Resources */,
+				DC3352C61BD645DD00C55EEB /* GameScene.sks in Resources */,
+				DC3352CB1BD645DD00C55EEB /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCC7A25B1BD6862200FDD4C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DC3352B51BD645DD00C55EEB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC3352F31BD646A200C55EEB /* Entity.cpp in Sources */,
+				DC3352C11BD645DD00C55EEB /* main.m in Sources */,
+				DC3352F41BD646A200C55EEB /* World.cpp in Sources */,
+				DC3352C41BD645DD00C55EEB /* GameScene.mm in Sources */,
+				DC58B0C51BD64D5E007575E3 /* Component.cpp in Sources */,
+				DC58B0991BD64B1A007575E3 /* Pool.cc in Sources */,
+				DC3352BE1BD645DD00C55EEB /* AppDelegate.m in Sources */,
+				DC58B0C81BD64D5E007575E3 /* DelayedEntityProcessingSystem.cpp in Sources */,
+				DC58B0CD1BD64D5E007575E3 /* EntityProcessingSystem.cpp in Sources */,
+				DC58B0CF1BD64D5E007575E3 /* GroupManager.cpp in Sources */,
+				DC58B0CB1BD64D5E007575E3 /* Entity.cpp in Sources */,
+				DC58B0C71BD64D5E007575E3 /* ComponentTypeManager.cpp in Sources */,
+				DC58B0C61BD64D5E007575E3 /* ComponentType.cpp in Sources */,
+				DC58B09B1BD64B1A007575E3 /* Timer.cc in Sources */,
+				DC3352F21BD646A200C55EEB /* Filter.cpp in Sources */,
+				DC58B0D01BD64D5E007575E3 /* SystemBitManager.cpp in Sources */,
+				DC58B0D21BD64D5E007575E3 /* TagManager.cpp in Sources */,
+				DC58B0951BD64B1A007575E3 /* Entity.cc in Sources */,
+				DC58B0971BD64B1A007575E3 /* Event.cc in Sources */,
+				DC58B0D11BD64D5E007575E3 /* SystemManager.cpp in Sources */,
+				DC3352F11BD646A200C55EEB /* EntityIdPool.cpp in Sources */,
+				DC58B09C1BD64B1A007575E3 /* System.cc in Sources */,
+				DC58B0D31BD64D5E007575E3 /* World.cpp in Sources */,
+				DC3352F01BD646A200C55EEB /* EntityComponentStorage.cpp in Sources */,
+				DC3352EF1BD646A200C55EEB /* BaseSystem.cpp in Sources */,
+				DC58B0CC1BD64D5E007575E3 /* EntityManager.cpp in Sources */,
+				DC58B0CE1BD64D5E007575E3 /* EntitySystem.cpp in Sources */,
+				DC58B0C91BD64D5E007575E3 /* DelayedEntitySystem.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCC7A2591BD6862200FDD4C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCC7A2601BD6862200FDD4C4 /* EntityComponentSystemsTests.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DCC7A2631BD6862200FDD4C4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC3352B81BD645DD00C55EEB /* EntityComponentSystemsTest */;
+			targetProxy = DCC7A2621BD6862200FDD4C4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DC3352C91BD645DD00C55EEB /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC3352CA1BD645DD00C55EEB /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DC3352CD1BD645DD00C55EEB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		DC3352CE1BD645DD00C55EEB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		DC3352D01BD645DD00C55EEB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/anax/include",
+					"$(SRCROOT)/entityx",
+					"$(SRCROOT)/Artemis-Cpp/include",
+				);
+				INFOPLIST_FILE = EntityComponentSystemsTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system/introspection",
+					"$(SDKROOT)/usr/lib/system",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_BUNDLE_IDENTIFIER = com.steffenitterheim.EntityComponentSystemsTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = x86_64;
+			};
+			name = Debug;
+		};
+		DC3352D11BD645DD00C55EEB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/anax/include",
+					"$(SRCROOT)/entityx",
+					"$(SRCROOT)/Artemis-Cpp/include",
+				);
+				INFOPLIST_FILE = EntityComponentSystemsTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system/introspection",
+					"$(SDKROOT)/usr/lib/system",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_BUNDLE_IDENTIFIER = com.steffenitterheim.EntityComponentSystemsTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = x86_64;
+			};
+			name = Release;
+		};
+		DCC7A2651BD6862200FDD4C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/anax/include",
+					"$(SRCROOT)/entityx",
+					"$(SRCROOT)/Artemis-Cpp/include",
+				);
+				INFOPLIST_FILE = EntityComponentSystemsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.steffenitterheim.EntityComponentSystemsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EntityComponentSystemsTest.app/Contents/MacOS/EntityComponentSystemsTest";
+			};
+			name = Debug;
+		};
+		DCC7A2661BD6862200FDD4C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/anax/include",
+					"$(SRCROOT)/entityx",
+					"$(SRCROOT)/Artemis-Cpp/include",
+				);
+				INFOPLIST_FILE = EntityComponentSystemsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.steffenitterheim.EntityComponentSystemsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EntityComponentSystemsTest.app/Contents/MacOS/EntityComponentSystemsTest";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DC3352B41BD645DD00C55EEB /* Build configuration list for PBXProject "EntityComponentSystemsTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC3352CD1BD645DD00C55EEB /* Debug */,
+				DC3352CE1BD645DD00C55EEB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC3352CF1BD645DD00C55EEB /* Build configuration list for PBXNativeTarget "EntityComponentSystemsTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC3352D01BD645DD00C55EEB /* Debug */,
+				DC3352D11BD645DD00C55EEB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DCC7A2641BD6862200FDD4C4 /* Build configuration list for PBXNativeTarget "EntityComponentSystemsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCC7A2651BD6862200FDD4C4 /* Debug */,
+				DCC7A2661BD6862200FDD4C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DC3352B11BD645DD00C55EEB /* Project object */;
+}

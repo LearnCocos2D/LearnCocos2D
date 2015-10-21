@@ -1,0 +1,11 @@
+Comparing and Profiling Entity Component Systems (ECS): EntityX, Anax, Artemis
+
+
+URL for the article discussing this project:
+	http://tilemapkit.com/2015/10/entity-component-systems-compared-benchmarked-entityx-anax-artemis
+
+Previous article that explains how to install these ECS in a project:
+	http://tilemapkit.com/2015/10/install-entity-component-systems-anax-entityx-artemis/
+
+
+Tested with Xcode 7 (SpriteKit project template) and XC unit tests for benchmarking.
